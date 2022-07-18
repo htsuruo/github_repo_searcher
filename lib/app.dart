@@ -18,7 +18,6 @@ class App extends StatelessWidget {
       onGenerateTitle: (context) => context.l10n.appTitle,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      themeMode: ThemeMode.dark,
       theme: Themes.light,
       darkTheme: Themes.dark,
       home: const BasePage(),
