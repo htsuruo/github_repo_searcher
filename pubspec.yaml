@@ -33,7 +33,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter 
   flutter_riverpod: ^2.0.0-dev.9
-  font_awesome_flutter:
   gap:
   intl:
 
