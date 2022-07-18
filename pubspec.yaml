@@ -32,7 +32,6 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^2.0.0-dev.9
   gap:
-  tsuruo_kit:
 
 dev_dependencies:
   flutter_test:
