@@ -30,8 +30,11 @@ dependencies:
   cupertino_icons:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter 
   flutter_riverpod: ^2.0.0-dev.9
   gap:
+  intl:
 
 dev_dependencies:
   flutter_test:
