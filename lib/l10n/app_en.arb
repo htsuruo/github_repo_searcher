@@ -1,4 +1,4 @@
 {
     "@@locale": "en",
-    "helloWorld": "Hello World!"
+    "appTitle": "GitHub Repo Searcher"
 }
