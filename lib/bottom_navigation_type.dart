@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_searcher/extension.dart';
 
 enum BottomNavigationType {
   /// 検索
@@ -8,12 +9,13 @@ enum BottomNavigationType {
   settings,
   ;
 
-  String get label {
+  // MEMO(tsuruoka): BuildContextを引っ張ってくるかWidget層で定義するべきか悩ましい
+  String label(BuildContext context) {
     switch (this) {
-      case BottomNavigationType.search:
-        return 'Repo Search';
-      case BottomNavigationType.settings:
-        return 'Setting';
+      case search:
+        return context.l10n.repoSearch;
+      case settings:
+        return context.l10n.settings;
     }
   }
 

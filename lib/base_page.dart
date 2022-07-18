@@ -16,7 +16,7 @@ class _BasePageState extends State<BasePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(types[currentIndex].label),
+        title: Text(types[currentIndex].label(context)),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -28,9 +28,8 @@ class _BasePageState extends State<BasePage> {
         items: types
             .map(
               (type) => BottomNavigationBarItem(
-                // TODO(tsuruoka): アイコン差し替え
                 icon: Icon(type.iconData),
-                label: type.label,
+                label: type.label(context),
               ),
             )
             .toList(),

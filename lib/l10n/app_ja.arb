@@ -1,4 +1,6 @@
 {
     "@@locale": "ja",
-    "appTitle": "Githubリポジトリ検索"
+    "appTitle": "Githubリポジトリ検索",
+    "repoSearch": "リポジトリ検索",
+    "settings": "設定"
 }

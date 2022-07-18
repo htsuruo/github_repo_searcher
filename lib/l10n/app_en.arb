@@ -1,4 +1,6 @@
 {
     "@@locale": "en",
-    "appTitle": "GitHub Repo Searcher"
+    "appTitle": "GitHub Repo Searcher",
+    "repoSearch": "Repo Search",
+    "settings": "settings"
 }
