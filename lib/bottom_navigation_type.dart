@@ -21,9 +21,9 @@ enum BottomNavigationType {
 
   IconData get iconData {
     switch (this) {
-      case BottomNavigationType.search:
+      case search:
         return Icons.search;
-      case BottomNavigationType.settings:
+      case settings:
         return Icons.settings;
     }
   }
