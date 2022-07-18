@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_searcher/base_page.dart';
+import 'package:github_repo_searcher/theme.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -10,17 +11,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       themeMode: ThemeMode.dark,
-      theme: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.green,
-          brightness: Brightness.dark,
-        ),
-        useMaterial3: true,
-      ),
+      theme: Themes.light,
+      darkTheme: Themes.dark,
       home: const BasePage(),
     );
   }
