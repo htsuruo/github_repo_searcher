@@ -10,12 +10,13 @@ class BasePage extends StatefulWidget {
 
 class _BasePageState extends State<BasePage> {
   int currentIndex = 0;
+  final types = BottomNavigationType.values;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SearchPage'),
+        title: Text(types[currentIndex].label),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -24,7 +25,7 @@ class _BasePageState extends State<BasePage> {
             currentIndex = index;
           });
         },
-        items: BottomNavigationType.values
+        items: types
             .map(
               (type) => BottomNavigationBarItem(
                 // TODO(tsuruoka): アイコン差し替え

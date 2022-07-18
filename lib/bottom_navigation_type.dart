@@ -11,7 +11,7 @@ enum BottomNavigationType {
   String get label {
     switch (this) {
       case BottomNavigationType.search:
-        return 'Search';
+        return 'Repo Search';
       case BottomNavigationType.settings:
         return 'Setting';
     }
