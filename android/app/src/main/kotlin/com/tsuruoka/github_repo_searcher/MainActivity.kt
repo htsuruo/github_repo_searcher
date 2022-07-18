@@ -1,4 +1,4 @@
-package com.tsuruoka.github_repository_searcher
+package com.tsuruoka.github_repo_searcher
 
 import io.flutter.embedding.android.FlutterActivity
 

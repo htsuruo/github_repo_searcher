@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.tsuruoka" "\0"
-            VALUE "FileDescription", "github_repository_searcher" "\0"
+            VALUE "FileDescription", "github_repo_searcher" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "github_repository_searcher" "\0"
+            VALUE "InternalName", "github_repo_searcher" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.tsuruoka. All rights reserved." "\0"
-            VALUE "OriginalFilename", "github_repository_searcher.exe" "\0"
-            VALUE "ProductName", "github_repository_searcher" "\0"
+            VALUE "OriginalFilename", "github_repo_searcher.exe" "\0"
+            VALUE "ProductName", "github_repo_searcher" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

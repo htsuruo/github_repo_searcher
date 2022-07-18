@@ -1,4 +1,4 @@
-# github_repository_searcher
+# github_repo_searcher
 
 A new Flutter project.
 
