@@ -45,6 +45,8 @@ class _GitHubLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    // GitHub Logo Guideline
+    // ref. https://github.com/logos
     return Assets.githubLogo.svg(
       height: 22,
       color: theme.brightness == Brightness.light ? null : Colors.white,
