@@ -1,9 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:github_repo_searcher/base_page.dart';
 import 'package:github_repo_searcher/extension.dart';
-import 'package:github_repo_searcher/theme.dart';
+import 'package:github_repo_searcher/theme/theme.dart';
+
+import 'features/base/base_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

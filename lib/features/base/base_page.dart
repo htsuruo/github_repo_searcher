@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:github_repo_searcher/bottom_navigation_type.dart';
 import 'package:github_repo_searcher/gen/assets.gen.dart';
+
+import 'bottom_navigation_type.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});
