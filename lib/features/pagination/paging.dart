@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pagination.dart';
+import 'model/pagination.dart';
 
 @immutable
 class Paging<E> {
