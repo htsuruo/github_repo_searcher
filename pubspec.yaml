@@ -37,8 +37,10 @@ dependencies:
   flutter_svg:
   gap:
   intl:
+  theme_tailor_annotation:
 
 dev_dependencies:
+  build_runner:
   flutter_test:
     sdk: flutter
   pedantic_mono:

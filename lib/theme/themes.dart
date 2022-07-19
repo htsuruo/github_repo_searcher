@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_searcher/theme/app_colors.dart';
+
+export 'app_colors.dart';
 
 class Themes {
   Themes._();
@@ -7,6 +10,9 @@ class Themes {
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
     useMaterial3: true,
   ).copyWith(
+    extensions: [
+      AppColors.light,
+    ],
     bottomNavigationBarTheme: _bottomNavigationBarTheme,
     dividerTheme: _dividerTheme,
   );
@@ -18,6 +24,9 @@ class Themes {
     ),
     useMaterial3: true,
   ).copyWith(
+    extensions: [
+      AppColors.dark,
+    ],
     bottomNavigationBarTheme: _bottomNavigationBarTheme,
     dividerTheme: _dividerTheme,
   );

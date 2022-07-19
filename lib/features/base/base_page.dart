@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_searcher/gen/assets.gen.dart';
+import 'package:github_repo_searcher/theme/themes.dart';
 
 import 'bottom_navigation_type.dart';
 
@@ -19,6 +20,13 @@ class _BasePageState extends State<BasePage> {
     return Scaffold(
       appBar: AppBar(
         title: const _GitHubLogo(),
+      ),
+      body: Center(
+        child: Container(
+          color: context.app,
+          width: 100,
+          height: 100,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
