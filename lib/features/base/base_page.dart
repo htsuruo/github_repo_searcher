@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_searcher/gen/assets.gen.dart';
-import 'package:github_repo_searcher/theme/themes.dart';
 
 import 'bottom_navigation_type.dart';
 
@@ -17,17 +16,13 @@ class _BasePageState extends State<BasePage> {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).appColors;
     return Scaffold(
       appBar: AppBar(
         title: const _GitHubLogo(),
       ),
-      body: Center(
-        child: Container(
-          color: appColors.background,
-          width: 100,
-          height: 100,
-        ),
+      body: IndexedStack(
+        index: currentIndex,
+        children: types.map((type) => type.page).toList(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,

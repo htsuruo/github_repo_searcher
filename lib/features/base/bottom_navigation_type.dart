@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_searcher/extension.dart';
+import 'package:github_repo_searcher/features/repo_search/repo_search_page.dart';
+import 'package:github_repo_searcher/features/settings/settings_page.dart';
 
 enum BottomNavigationType {
   /// 検索
@@ -25,6 +27,15 @@ enum BottomNavigationType {
         return Icons.search;
       case settings:
         return Icons.settings;
+    }
+  }
+
+  Widget get page {
+    switch (this) {
+      case search:
+        return const RepoSearchPage();
+      case settings:
+        return const SettingsPage();
     }
   }
 }
