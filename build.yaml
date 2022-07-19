@@ -5,11 +5,11 @@ targets:
         generate_for:
           include:
             - lib/**/*_state.dart
-            - lib/features/model/**/*.dart
+            - lib/features/**/model/*.dart
       json_serializable:
         generate_for:
           include:
-            - lib/features/model/**/*.dart
+            - lib/features/**/model/*.dart
         options:
           any_map: true
           explicit_to_json: true

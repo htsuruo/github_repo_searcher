@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:github_repo_searcher/theme/app_colors.dart';
 
-export 'app_colors.dart';
+import 'extensions/app_colors.dart';
 
 extension ThemeDataX on ThemeData {
   AppColors get appColors => extension<AppColors>()!;

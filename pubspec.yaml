@@ -32,9 +32,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
-    sdk: flutter 
+    sdk: flutter
   flutter_riverpod: ^2.0.0-dev.9
   flutter_svg:
+  freezed_annotation:
   gap:
   intl:
   theme_tailor_annotation:
@@ -43,6 +44,8 @@ dev_dependencies:
   build_runner:
   flutter_test:
     sdk: flutter
+  freezed:
+  json_serializable:
   pedantic_mono:
   theme_tailor:
 
