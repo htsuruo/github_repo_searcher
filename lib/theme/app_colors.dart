@@ -6,5 +6,5 @@ part 'app_colors.tailor.dart';
 // ignore: avoid_classes_with_only_static_members
 @tailor
 class _$AppColors {
-  static List<Color> app = [Colors.white, Colors.black];
+  static List<Color> background = [Colors.white, Colors.black];
 }

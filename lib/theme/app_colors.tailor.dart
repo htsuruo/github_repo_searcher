@@ -10,17 +10,17 @@ part of 'app_colors.dart';
 
 class AppColors extends ThemeExtension<AppColors> {
   const AppColors({
-    required this.app,
+    required this.background,
   });
 
-  final Color app;
+  final Color background;
 
   static final AppColors light = AppColors(
-    app: _$AppColors.app[0],
+    background: _$AppColors.background[0],
   );
 
   static final AppColors dark = AppColors(
-    app: _$AppColors.app[1],
+    background: _$AppColors.background[1],
   );
 
   static final themes = [
@@ -30,10 +30,10 @@ class AppColors extends ThemeExtension<AppColors> {
 
   @override
   AppColors copyWith({
-    Color? app,
+    Color? background,
   }) {
     return AppColors(
-      app: app ?? this.app,
+      background: background ?? this.background,
     );
   }
 
@@ -41,7 +41,7 @@ class AppColors extends ThemeExtension<AppColors> {
   AppColors lerp(ThemeExtension<AppColors>? other, double t) {
     if (other is! AppColors) return this;
     return AppColors(
-      app: Color.lerp(app, other.app, t)!,
+      background: Color.lerp(background, other.background, t)!,
     );
   }
 
@@ -50,16 +50,18 @@ class AppColors extends ThemeExtension<AppColors> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AppColors &&
-            const DeepCollectionEquality().equals(app, other.app));
+            const DeepCollectionEquality()
+                .equals(background, other.background));
   }
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, const DeepCollectionEquality().hash(app));
+    return Object.hash(
+        runtimeType, const DeepCollectionEquality().hash(background));
   }
 }
 
 extension AppColorsBuildContextProps on BuildContext {
   AppColors get _appColors => Theme.of(this).extension<AppColors>()!;
-  Color get app => _appColors.app;
+  Color get background => _appColors.background;
 }

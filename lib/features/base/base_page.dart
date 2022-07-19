@@ -17,13 +17,14 @@ class _BasePageState extends State<BasePage> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).appColors;
     return Scaffold(
       appBar: AppBar(
         title: const _GitHubLogo(),
       ),
       body: Center(
         child: Container(
-          color: context.app,
+          color: appColors.background,
           width: 100,
           height: 100,
         ),
