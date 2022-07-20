@@ -11,8 +11,8 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
-  int currentIndex = 0;
   final types = BottomNavigationType.values;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
