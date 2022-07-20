@@ -22,5 +22,4 @@ class Repo with _$Repo {
   }) = _Repo;
 
   factory Repo.fromJson(Map<String, dynamic> json) => _$RepoFromJson(json);
-  const Repo._();
 }

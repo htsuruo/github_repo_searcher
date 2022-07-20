@@ -310,7 +310,7 @@ class __$$_OwnerCopyWithImpl<$Res> extends _$OwnerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Owner extends _Owner {
+class _$_Owner implements _Owner {
   const _$_Owner(
       {required this.login,
       required this.id,
@@ -329,8 +329,7 @@ class _$_Owner extends _Owner {
       required this.eventsUrl,
       required this.receivedEventsUrl,
       required this.type,
-      required this.siteAdmin})
-      : super._();
+      required this.siteAdmin});
 
   factory _$_Owner.fromJson(Map<String, dynamic> json) =>
       _$$_OwnerFromJson(json);
@@ -445,7 +444,7 @@ class _$_Owner extends _Owner {
   }
 }
 
-abstract class _Owner extends Owner {
+abstract class _Owner implements Owner {
   const factory _Owner(
       {required final String login,
       required final int id,
@@ -465,7 +464,6 @@ abstract class _Owner extends Owner {
       required final String receivedEventsUrl,
       required final String type,
       required final bool siteAdmin}) = _$_Owner;
-  const _Owner._() : super._();
 
   factory _Owner.fromJson(Map<String, dynamic> json) = _$_Owner.fromJson;
 

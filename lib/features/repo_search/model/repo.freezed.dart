@@ -232,7 +232,7 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Repo extends _Repo {
+class _$_Repo implements _Repo {
   const _$_Repo(
       {required this.id,
       required this.nodeId,
@@ -245,8 +245,7 @@ class _$_Repo extends _Repo {
       required this.stargazersCount,
       required this.watchersCount,
       required this.forksCount,
-      required this.openIssuesCount})
-      : super._();
+      required this.openIssuesCount});
 
   factory _$_Repo.fromJson(Map<String, dynamic> json) => _$$_RepoFromJson(json);
 
@@ -334,7 +333,7 @@ class _$_Repo extends _Repo {
   }
 }
 
-abstract class _Repo extends Repo {
+abstract class _Repo implements Repo {
   const factory _Repo(
       {required final int id,
       required final String nodeId,
@@ -348,7 +347,6 @@ abstract class _Repo extends Repo {
       required final int watchersCount,
       required final int forksCount,
       required final int openIssuesCount}) = _$_Repo;
-  const _Repo._() : super._();
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$_Repo.fromJson;
 

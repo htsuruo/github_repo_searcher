@@ -27,5 +27,4 @@ class Owner with _$Owner {
   }) = _Owner;
 
   factory Owner.fromJson(Map<String, dynamic> json) => _$OwnerFromJson(json);
-  const Owner._();
 }
