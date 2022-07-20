@@ -5,8 +5,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/app.dart';
+import 'package:github_repo_searcher/logger.dart';
+import 'package:simple_logger/simple_logger.dart';
 
 void main() {
+  logger.setLevel(
+    kReleaseMode ? Level.SEVERE : Level.FINEST,
+    includeCallerInfo: kDebugMode,
+  );
   runApp(
     DevicePreview(
       // DevicePreviewはスマートフォンサイズでは設定がしづらいので、

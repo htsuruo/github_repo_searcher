@@ -39,6 +39,7 @@ dependencies:
   gap:
   http:
   intl:
+  simple_logger: ^1.9.0
   theme_tailor_annotation:
 
 dev_dependencies:
