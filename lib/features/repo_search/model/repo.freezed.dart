@@ -25,6 +25,7 @@ mixin _$Repo {
   String get name => throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
   bool get private => throw _privateConstructorUsedError;
+  Owner get owner => throw _privateConstructorUsedError;
   String get htmlUrl => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $RepoCopyWith<$Res> {
       String name,
       String fullName,
       bool private,
+      Owner owner,
       String htmlUrl,
       String description,
       String language,
@@ -55,6 +57,8 @@ abstract class $RepoCopyWith<$Res> {
       int watchersCount,
       int forksCount,
       int openIssuesCount});
+
+  $OwnerCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -72,6 +76,7 @@ class _$RepoCopyWithImpl<$Res> implements $RepoCopyWith<$Res> {
     Object? name = freezed,
     Object? fullName = freezed,
     Object? private = freezed,
+    Object? owner = freezed,
     Object? htmlUrl = freezed,
     Object? description = freezed,
     Object? language = freezed,
@@ -101,6 +106,10 @@ class _$RepoCopyWithImpl<$Res> implements $RepoCopyWith<$Res> {
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
               as bool,
+      owner: owner == freezed
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as Owner,
       htmlUrl: htmlUrl == freezed
           ? _value.htmlUrl
           : htmlUrl // ignore: cast_nullable_to_non_nullable
@@ -131,6 +140,13 @@ class _$RepoCopyWithImpl<$Res> implements $RepoCopyWith<$Res> {
               as int,
     ));
   }
+
+  @override
+  $OwnerCopyWith<$Res> get owner {
+    return $OwnerCopyWith<$Res>(_value.owner, (value) {
+      return _then(_value.copyWith(owner: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -144,6 +160,7 @@ abstract class _$$_RepoCopyWith<$Res> implements $RepoCopyWith<$Res> {
       String name,
       String fullName,
       bool private,
+      Owner owner,
       String htmlUrl,
       String description,
       String language,
@@ -151,6 +168,9 @@ abstract class _$$_RepoCopyWith<$Res> implements $RepoCopyWith<$Res> {
       int watchersCount,
       int forksCount,
       int openIssuesCount});
+
+  @override
+  $OwnerCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -169,6 +189,7 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res>
     Object? name = freezed,
     Object? fullName = freezed,
     Object? private = freezed,
+    Object? owner = freezed,
     Object? htmlUrl = freezed,
     Object? description = freezed,
     Object? language = freezed,
@@ -198,6 +219,10 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res>
           ? _value.private
           : private // ignore: cast_nullable_to_non_nullable
               as bool,
+      owner: owner == freezed
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as Owner,
       htmlUrl: htmlUrl == freezed
           ? _value.htmlUrl
           : htmlUrl // ignore: cast_nullable_to_non_nullable
@@ -239,6 +264,7 @@ class _$_Repo implements _Repo {
       required this.name,
       required this.fullName,
       required this.private,
+      required this.owner,
       required this.htmlUrl,
       required this.description,
       required this.language,
@@ -260,6 +286,8 @@ class _$_Repo implements _Repo {
   @override
   final bool private;
   @override
+  final Owner owner;
+  @override
   final String htmlUrl;
   @override
   final String description;
@@ -276,7 +304,7 @@ class _$_Repo implements _Repo {
 
   @override
   String toString() {
-    return 'Repo(id: $id, nodeId: $nodeId, name: $name, fullName: $fullName, private: $private, htmlUrl: $htmlUrl, description: $description, language: $language, stargazersCount: $stargazersCount, watchersCount: $watchersCount, forksCount: $forksCount, openIssuesCount: $openIssuesCount)';
+    return 'Repo(id: $id, nodeId: $nodeId, name: $name, fullName: $fullName, private: $private, owner: $owner, htmlUrl: $htmlUrl, description: $description, language: $language, stargazersCount: $stargazersCount, watchersCount: $watchersCount, forksCount: $forksCount, openIssuesCount: $openIssuesCount)';
   }
 
   @override
@@ -289,6 +317,7 @@ class _$_Repo implements _Repo {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.fullName, fullName) &&
             const DeepCollectionEquality().equals(other.private, private) &&
+            const DeepCollectionEquality().equals(other.owner, owner) &&
             const DeepCollectionEquality().equals(other.htmlUrl, htmlUrl) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
@@ -312,6 +341,7 @@ class _$_Repo implements _Repo {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(fullName),
       const DeepCollectionEquality().hash(private),
+      const DeepCollectionEquality().hash(owner),
       const DeepCollectionEquality().hash(htmlUrl),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(language),
@@ -340,6 +370,7 @@ abstract class _Repo implements Repo {
       required final String name,
       required final String fullName,
       required final bool private,
+      required final Owner owner,
       required final String htmlUrl,
       required final String description,
       required final String language,
@@ -360,6 +391,8 @@ abstract class _Repo implements Repo {
   String get fullName;
   @override
   bool get private;
+  @override
+  Owner get owner;
   @override
   String get htmlUrl;
   @override

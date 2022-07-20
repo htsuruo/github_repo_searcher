@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'owner.dart';
+
 part 'repo.freezed.dart';
 part 'repo.g.dart';
 
@@ -12,6 +14,7 @@ class Repo with _$Repo {
     required String name,
     required String fullName,
     required bool private,
+    required Owner owner,
     required String htmlUrl,
     required String description,
     required String language,
