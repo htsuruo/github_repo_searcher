@@ -5,6 +5,7 @@ part 'repo.g.dart';
 
 @freezed
 class Repo with _$Repo {
+  // MEMO(tsuruoka): 必要最小限のみをデコード対象としています。
   const factory Repo({
     required int id,
     required String nodeId,
