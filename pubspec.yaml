@@ -37,6 +37,7 @@ dependencies:
   flutter_svg:
   freezed_annotation:
   gap:
+  http:
   intl:
   theme_tailor_annotation:
 
