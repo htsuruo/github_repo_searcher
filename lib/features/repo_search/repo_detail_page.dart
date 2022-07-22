@@ -13,13 +13,14 @@ class RepoDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = Theme.of(context);
     final repo = ref.watch(selectedRepo);
     return Scaffold(
       appBar: AppBar(),
       body: repo == null
           ? const Center(child: Text('Not Found'))
-          : _Body(repo: repo),
+          : SafeArea(
+              child: _Body(repo: repo),
+            ),
     );
   }
 }
