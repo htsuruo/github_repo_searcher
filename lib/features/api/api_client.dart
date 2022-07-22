@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_repo_searcher/features/api/api_exception.dart';
 import 'package:github_repo_searcher/features/api/query_param.dart';
 import 'package:github_repo_searcher/logger.dart';
 import 'package:http/http.dart' as http;
 
-final apiClient = Provider((ref) => ApiClient(ref.read));
+final apiClient = Provider((ref) => ApiClient());
 
 class ApiClient {
-  ApiClient(this._read);
-  final Reader _read;
+  ApiClient();
 
   static const _host = 'api.github.com';
   static const _headers = {
@@ -33,8 +33,7 @@ class ApiClient {
       return decoder(res as Map<String, dynamic>);
     }
 
-    // TODO(tsuruoka): エラー内容がわかるようにする
-    logger.severe(res.statusCode);
-    throw Exception('Failed to get $path');
+    logger.severe(res.body);
+    throw ApiException(code: res.statusCode, message: '');
   }
 }
