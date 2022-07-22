@@ -13,12 +13,12 @@ _$_ApiErrorBody _$$_ApiErrorBodyFromJson(Map json) => _$_ApiErrorBody(
       errors: (json['errors'] as List<dynamic>?)
           ?.map((e) => ApiError.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
-      documentationUrl: json['documentationUrl'] as String?,
+      documentationUrl: json['documentation_url'] as String?,
     );
 
 Map<String, dynamic> _$$_ApiErrorBodyToJson(_$_ApiErrorBody instance) =>
     <String, dynamic>{
       'message': instance.message,
       'errors': instance.errors?.map((e) => e.toJson()).toList(),
-      'documentationUrl': instance.documentationUrl,
+      'documentation_url': instance.documentationUrl,
     };
