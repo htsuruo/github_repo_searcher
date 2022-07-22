@@ -37,9 +37,10 @@ dependencies:
   flutter_svg:
   freezed_annotation:
   gap:
+  go_router:
   http:
   intl:
-  simple_logger: ^1.9.0
+  simple_logger:
   theme_tailor_annotation:
 
 dev_dependencies:
