@@ -14,4 +14,18 @@ class QueryParam {
   final String? order;
   final int? perPage;
   final int? page;
+
+  Map<String, String> get toMap {
+    final sort = this.sort;
+    final order = this.order;
+    final perPage = this.perPage;
+    final page = this.page;
+    return {
+      'q': q,
+      if (sort != null) 'sort': sort,
+      if (order != null) 'order': order,
+      if (perPage != null) 'perPage': perPage.toString(),
+      if (page != null) 'page': page.toString(),
+    };
+  }
 }

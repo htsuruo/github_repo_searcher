@@ -25,15 +25,15 @@ class ApiClient {
   }) async {
     final res = await http
         .get(
-          Uri.https(_host, path, <String, String>{}),
+          Uri.https(_host, path, queryParam?.toMap),
           headers: _headers,
         )
         .timeout(_timeout);
 
-    if (res.statusCode == 200) {
-      return decoder(res as Map<String, dynamic>);
-    }
     final json = jsonDecode(res.body) as Map<String, dynamic>;
+    if (res.statusCode == 200) {
+      return decoder(json);
+    }
     final errorBody = ApiErrorBody.fromJson(json);
     throw ApiException(code: res.statusCode, body: errorBody);
   }
