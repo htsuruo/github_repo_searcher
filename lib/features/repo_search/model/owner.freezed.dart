@@ -22,7 +22,7 @@ Owner _$OwnerFromJson(Map<String, dynamic> json) {
 mixin _$Owner {
   String get login => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
-  int get nodeId => throw _privateConstructorUsedError;
+  String get nodeId => throw _privateConstructorUsedError;
   String get avatarUrl => throw _privateConstructorUsedError;
   String get gravatarId => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $OwnerCopyWith<$Res> {
   $Res call(
       {String login,
       int id,
-      int nodeId,
+      String nodeId,
       String avatarUrl,
       String gravatarId,
       String url,
@@ -110,7 +110,7 @@ class _$OwnerCopyWithImpl<$Res> implements $OwnerCopyWith<$Res> {
       nodeId: nodeId == freezed
           ? _value.nodeId
           : nodeId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       avatarUrl: avatarUrl == freezed
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ abstract class _$$_OwnerCopyWith<$Res> implements $OwnerCopyWith<$Res> {
   $Res call(
       {String login,
       int id,
-      int nodeId,
+      String nodeId,
       String avatarUrl,
       String gravatarId,
       String url,
@@ -243,7 +243,7 @@ class __$$_OwnerCopyWithImpl<$Res> extends _$OwnerCopyWithImpl<$Res>
       nodeId: nodeId == freezed
           ? _value.nodeId
           : nodeId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       avatarUrl: avatarUrl == freezed
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
@@ -339,7 +339,7 @@ class _$_Owner implements _Owner {
   @override
   final int id;
   @override
-  final int nodeId;
+  final String nodeId;
   @override
   final String avatarUrl;
   @override
@@ -448,7 +448,7 @@ abstract class _Owner implements Owner {
   const factory _Owner(
       {required final String login,
       required final int id,
-      required final int nodeId,
+      required final String nodeId,
       required final String avatarUrl,
       required final String gravatarId,
       required final String url,
@@ -472,7 +472,7 @@ abstract class _Owner implements Owner {
   @override
   int get id;
   @override
-  int get nodeId;
+  String get nodeId;
   @override
   String get avatarUrl;
   @override

@@ -8,7 +8,7 @@ class Owner with _$Owner {
   const factory Owner({
     required String login,
     required int id,
-    required int nodeId,
+    required String nodeId,
     required String avatarUrl,
     required String gravatarId,
     required String url,

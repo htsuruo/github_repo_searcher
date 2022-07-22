@@ -28,7 +28,7 @@ mixin _$Repo {
   Owner get owner => throw _privateConstructorUsedError;
   String get htmlUrl => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
   int get stargazersCount => throw _privateConstructorUsedError;
   int get watchersCount => throw _privateConstructorUsedError;
   int get forksCount => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $RepoCopyWith<$Res> {
       Owner owner,
       String htmlUrl,
       String description,
-      String language,
+      String? language,
       int stargazersCount,
       int watchersCount,
       int forksCount,
@@ -121,7 +121,7 @@ class _$RepoCopyWithImpl<$Res> implements $RepoCopyWith<$Res> {
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       stargazersCount: stargazersCount == freezed
           ? _value.stargazersCount
           : stargazersCount // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ abstract class _$$_RepoCopyWith<$Res> implements $RepoCopyWith<$Res> {
       Owner owner,
       String htmlUrl,
       String description,
-      String language,
+      String? language,
       int stargazersCount,
       int watchersCount,
       int forksCount,
@@ -234,7 +234,7 @@ class __$$_RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res>
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       stargazersCount: stargazersCount == freezed
           ? _value.stargazersCount
           : stargazersCount // ignore: cast_nullable_to_non_nullable
@@ -266,8 +266,8 @@ class _$_Repo implements _Repo {
       required this.private,
       required this.owner,
       required this.htmlUrl,
-      required this.description,
-      required this.language,
+      this.description = '',
+      this.language,
       required this.stargazersCount,
       required this.watchersCount,
       required this.forksCount,
@@ -290,9 +290,10 @@ class _$_Repo implements _Repo {
   @override
   final String htmlUrl;
   @override
+  @JsonKey()
   final String description;
   @override
-  final String language;
+  final String? language;
   @override
   final int stargazersCount;
   @override
@@ -372,8 +373,8 @@ abstract class _Repo implements Repo {
       required final bool private,
       required final Owner owner,
       required final String htmlUrl,
-      required final String description,
-      required final String language,
+      final String description,
+      final String? language,
       required final int stargazersCount,
       required final int watchersCount,
       required final int forksCount,
@@ -398,7 +399,7 @@ abstract class _Repo implements Repo {
   @override
   String get description;
   @override
-  String get language;
+  String? get language;
   @override
   int get stargazersCount;
   @override
