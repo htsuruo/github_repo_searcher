@@ -12,15 +12,56 @@ class RepoSearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return AsyncValueBuilder<Paging<Repo>>(
       value: ref.watch(RepoSearchRepository.search),
-      builder: (paging) => Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('totalCount: ${paging.totalCount}'),
-            Text('itemsLength: ${paging.items.length}'),
-          ],
-        ),
-      ),
+      builder: (paging) {
+        final repos = paging.items;
+        return Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  child: Text(
+                    '${repos.length} / ${paging.totalCount}',
+                  ),
+                ),
+              ),
+              const Divider(),
+              Expanded(
+                child: ListView.separated(
+                  itemCount: paging.items.length,
+                  separatorBuilder: (context, _) => const Divider(),
+                  itemBuilder: (context, index) {
+                    final repo = repos[index];
+                    if (index >= repos.length) {
+                      return const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      );
+                    }
+                    return ListTile(
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 2,
+                      ),
+                      visualDensity: VisualDensity.compact,
+                      title: Text(repo.fullName),
+                      subtitle: Text(
+                        repo.description,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      trailing: const Icon(Icons.navigate_next_rounded),
+                      onTap: () {},
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }
