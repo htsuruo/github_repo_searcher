@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo_search/model/repo.dart';
+import 'package:github_repo_searcher/features/repo_search/repo_detail_page.dart';
 import 'package:github_repo_searcher/features/repo_search/repo_search_repository.dart';
 import 'package:go_router/go_router.dart';
 
@@ -47,10 +48,13 @@ class RepoSearchPage extends ConsumerWidget {
                         horizontal: 16,
                         vertical: 2,
                       ),
-                      onTap: () => context.goNamed(
-                        'repo_detail',
-                        params: {'repoId': repo.id.toString()},
-                      ),
+                      onTap: () {
+                        ref.read(selectedRepo.notifier).state = repo;
+                        context.goNamed(
+                          'repo_detail',
+                          params: {'repoId': repo.id.toString()},
+                        );
+                      },
                       title: Text(repo.fullName),
                       subtitle: Text(
                         repo.description,
