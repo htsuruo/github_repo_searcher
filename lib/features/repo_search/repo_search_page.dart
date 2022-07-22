@@ -4,6 +4,7 @@ import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo_search/model/repo.dart';
 import 'package:github_repo_searcher/features/repo_search/repo_search_repository.dart';
+import 'package:go_router/go_router.dart';
 
 class RepoSearchPage extends ConsumerWidget {
   const RepoSearchPage({super.key});
@@ -41,19 +42,22 @@ class RepoSearchPage extends ConsumerWidget {
                       );
                     }
                     return ListTile(
+                      visualDensity: VisualDensity.compact,
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 2,
                       ),
-                      visualDensity: VisualDensity.compact,
+                      onTap: () => context.goNamed(
+                        'repo_detail',
+                        params: {'repoId': repo.id.toString()},
+                      ),
                       title: Text(repo.fullName),
                       subtitle: Text(
                         repo.description,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      trailing: const Icon(Icons.navigate_next_rounded),
-                      onTap: () {},
+                      trailing: const Icon(Icons.navigate_next),
                     );
                   },
                 ),
