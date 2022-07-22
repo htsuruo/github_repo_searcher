@@ -1,9 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_searcher/features/api/api_exception.dart';
+import 'package:github_repo_searcher/features/api/model/api_error_body.dart';
+import 'package:github_repo_searcher/features/api/model/api_exception.dart';
 import 'package:github_repo_searcher/features/api/query_param.dart';
-import 'package:github_repo_searcher/logger.dart';
 import 'package:http/http.dart' as http;
 
 final apiClient = Provider((ref) => ApiClient());
@@ -32,8 +33,8 @@ class ApiClient {
     if (res.statusCode == 200) {
       return decoder(res as Map<String, dynamic>);
     }
-
-    logger.severe(res.body);
-    throw ApiException(code: res.statusCode, message: '');
+    final json = jsonDecode(res.body) as Map<String, dynamic>;
+    final errorBody = ApiErrorBody.fromJson(json);
+    throw ApiException(code: res.statusCode, body: errorBody);
   }
 }
