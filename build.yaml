@@ -13,6 +13,7 @@ targets:
         options:
           any_map: true
           explicit_to_json: true
+          field_rename: snake
       # ref. https://twitter.com/_mono/status/1536907414490222593?s=20&t=RAVlvTxYiFwRkZZqETLR1A
       source_gen|combining_builder:
         options:
