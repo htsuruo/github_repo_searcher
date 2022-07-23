@@ -1,7 +1,9 @@
 import 'package:intl/intl.dart';
 
-final fmt = NumberFormat.compact();
+final fmt = NumberFormat('#,###');
+final compactFmt = NumberFormat.compact();
 
 extension IntX on int {
-  String get compact => fmt.format(this);
+  String get format => fmt.format(this);
+  String get compact => compactFmt.format(this);
 }

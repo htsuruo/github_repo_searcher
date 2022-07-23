@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_searcher/common/extensions/extensions.dart';
 
 class RepoSearchBar extends StatelessWidget {
   const RepoSearchBar({super.key});
@@ -20,7 +21,7 @@ class RepoSearchBar extends StatelessWidget {
         constraints: const BoxConstraints(
           maxHeight: 40,
         ),
-        hintText: '検索',
+        hintText: context.l10n.searchRepoHint,
         hintStyle: theme.textTheme.bodyMedium!.copyWith(
           color: Colors.grey,
         ),

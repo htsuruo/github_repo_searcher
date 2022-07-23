@@ -8,5 +8,12 @@
     "language": "language",
     "watcher": "watcher",
     "fork": "fork",
-    "issue": "issue"
+    "issue": "issue",
+    "searchRepoHint": "Search",
+    "searchTotalCountResult": "Total {totalCount}",
+    "@searchTotalCountResult": {
+        "placeholders": {
+            "totalCount": {}
+        }
+    }
 }

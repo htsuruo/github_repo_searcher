@@ -8,5 +8,12 @@
     "language": "言語",
     "watcher": "ウォッチ",
     "fork": "フォーク",
-    "issue": "イシュー"
+    "issue": "イシュー",
+    "searchRepoHint": "検索",
+    "searchTotalCountResult": "全 {totalCount} 件",
+    "@searchTotalCountResult": {
+        "placeholders": {
+            "totalCount": {}
+        }
+    }
 }

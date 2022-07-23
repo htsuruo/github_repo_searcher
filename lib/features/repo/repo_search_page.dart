@@ -88,7 +88,7 @@ class _SearchBox extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Text(
-              '$totalCount',
+              context.l10n.searchTotalCountResult(totalCount.format),
             ),
           ),
         ),
