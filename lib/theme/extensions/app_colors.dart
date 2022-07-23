@@ -12,22 +12,22 @@ class _$AppColors {
   ];
   static List<Color> languageIconSurface = [
     const Color(0xFF4B97E3),
-    const Color(0xFFA1C3E4),
+    const Color(0xFFB7D3EE),
   ];
   static List<Color> starIconSurface = [
     const Color(0xFFD4D807),
-    const Color(0xFFEDEDAC),
+    const Color(0xFFF3F3BD),
   ];
   static List<Color> watcherIconSurface = [
     const Color(0xFFBA7015),
-    const Color(0xFFE1BF9D)
+    const Color(0xFFF3D9BD)
   ];
   static List<Color> forkIconSurface = [
     const Color(0xFF4949E4),
-    const Color(0xFFAAAAD5)
+    const Color(0xFFCBCBED)
   ];
   static List<Color> infoIconSurface = [
     const Color(0xFF10B155),
-    const Color(0xFFC3DFA8)
+    const Color(0xFFCFE4BB)
   ];
 }
