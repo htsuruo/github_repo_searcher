@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_searcher/extension.dart';
+import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:intersperse/intersperse.dart';
 
 import 'model/repo.dart';
@@ -33,6 +34,7 @@ class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final appColors = theme.appColors;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -50,31 +52,31 @@ class _Body extends StatelessWidget {
         ...<Widget>[
           _Row(
             iconData: Icons.language_outlined,
-            iconBackgroundColor: Colors.amber,
+            iconBackgroundColor: appColors.languageIconSurface,
             title: context.l10n.language,
             value: repo.language ?? 'なし',
           ),
           _Row(
             iconData: Icons.star_outline,
-            iconBackgroundColor: Colors.amber,
+            iconBackgroundColor: appColors.starIconSurface,
             title: context.l10n.star,
             value: repo.stargazersCount.compact,
           ),
           _Row(
             iconData: Icons.visibility_outlined,
-            iconBackgroundColor: Colors.amber,
+            iconBackgroundColor: appColors.watcherIconSurface,
             title: context.l10n.watcher,
             value: repo.watchersCount.compact,
           ),
           _Row(
             iconData: Icons.fork_right_outlined,
-            iconBackgroundColor: Colors.amber,
+            iconBackgroundColor: appColors.forkIconSurface,
             title: context.l10n.fork,
             value: repo.forksCount.compact,
           ),
           _Row(
             iconData: Icons.info_outline,
-            iconBackgroundColor: Colors.amber,
+            iconBackgroundColor: appColors.infoIconSurface,
             title: context.l10n.issue,
             value: repo.openIssuesCount.compact,
           ),
@@ -99,17 +101,20 @@ class _Row extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.all(4),
+          padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: iconBackgroundColor,
           ),
           child: Icon(
             iconData,
-            size: 20,
+            size: 16,
+            color: colorScheme.surface,
           ),
         ),
         const Gap(8),
