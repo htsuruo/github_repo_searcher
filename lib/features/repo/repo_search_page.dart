@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo/model/repo.dart';
 import 'package:github_repo_searcher/features/repo/repo_detail_page.dart';
+import 'package:github_repo_searcher/features/repo/repo_search_bar.dart';
 import 'package:github_repo_searcher/features/repo/repo_search_repository.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,17 +20,9 @@ class RepoSearchPage extends ConsumerWidget {
         final repos = paging.items;
         return Center(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                  child: Text(
-                    '${repos.length} / ${paging.totalCount}',
-                  ),
-                ),
+              SafeArea(
+                child: _SearchBox(totalCount: paging.totalCount),
               ),
               const Divider(),
               Expanded(
@@ -70,6 +64,36 @@ class RepoSearchPage extends ConsumerWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class _SearchBox extends StatelessWidget {
+  const _SearchBox({required this.totalCount});
+
+  final int totalCount;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const Gap(6),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: RepoSearchBar(),
+        ),
+        const Gap(2),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Text(
+              '$totalCount',
+            ),
+          ),
+        ),
+        const Gap(4),
+      ],
     );
   }
 }
