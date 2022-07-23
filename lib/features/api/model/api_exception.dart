@@ -8,6 +8,8 @@ class ApiException implements Exception {
   final int code;
   final ApiErrorBody body;
 
+  // MEMO(tsuruoka): 本来は生のエラーコードやメッセージをユーザーに表示するべきではないので
+  // 表示用の`displayMessage`などを定義して表示する必要がある。
   @override
   String toString() => '[$code] ${body.toString()}';
 }
