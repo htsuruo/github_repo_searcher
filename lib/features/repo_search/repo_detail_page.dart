@@ -14,9 +14,17 @@ class RepoDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
     final repo = ref.watch(selectedRepo);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          context.l10n.repoDetailTitle,
+          style: theme.textTheme.bodyLarge!.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: repo == null
           ? const Center(child: Text('Not Found'))
           : SafeArea(
