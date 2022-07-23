@@ -46,8 +46,13 @@ class _Body extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
+        _OwnerInfo(
+          avatarUrl: repo.owner.avatarUrl,
+          name: repo.owner.login,
+        ),
+        const Gap(4),
         Text(
-          repo.fullName,
+          repo.name,
           style: theme.textTheme.titleMedium,
         ),
         Text(
@@ -89,6 +94,36 @@ class _Body extends StatelessWidget {
             value: repo.openIssuesCount.compact,
           ),
         ].intersperse(const Gap(16)),
+      ],
+    );
+  }
+}
+
+class _OwnerInfo extends StatelessWidget {
+  const _OwnerInfo({
+    required this.avatarUrl,
+    required this.name,
+  });
+
+  final String avatarUrl;
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 20,
+          height: 20,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: Image.network(avatarUrl).image,
+            ),
+          ),
+        ),
+        const Gap(6),
+        Text(name),
       ],
     );
   }
