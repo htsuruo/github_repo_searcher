@@ -49,27 +49,32 @@ class _Body extends StatelessWidget {
         const Gap(16),
         ...<Widget>[
           _Row(
-            icon: const Icon(Icons.clear),
+            iconData: Icons.clear,
+            iconBackgroundColor: Colors.amber,
             title: context.l10n.language,
             value: repo.language ?? 'なし',
           ),
           _Row(
-            icon: const Icon(Icons.star),
+            iconData: Icons.star,
+            iconBackgroundColor: Colors.amber,
             title: context.l10n.star,
             value: repo.stargazersCount.compact,
           ),
           _Row(
-            icon: const Icon(Icons.visibility),
+            iconData: Icons.visibility,
+            iconBackgroundColor: Colors.amber,
             title: context.l10n.watcher,
             value: repo.watchersCount.compact,
           ),
           _Row(
-            icon: const Icon(Icons.clear),
+            iconData: Icons.clear,
+            iconBackgroundColor: Colors.amber,
             title: context.l10n.fork,
             value: repo.forksCount.compact,
           ),
           _Row(
-            icon: const Icon(Icons.clear),
+            iconData: Icons.clear,
+            iconBackgroundColor: Colors.amber,
             title: context.l10n.issue,
             value: repo.openIssuesCount.compact,
           ),
@@ -81,12 +86,14 @@ class _Body extends StatelessWidget {
 
 class _Row extends StatelessWidget {
   const _Row({
-    required this.icon,
+    required this.iconData,
+    required this.iconBackgroundColor,
     required this.title,
     required this.value,
   });
 
-  final Icon icon;
+  final IconData iconData;
+  final Color iconBackgroundColor;
   final String title;
   final String value;
 
@@ -94,7 +101,17 @@ class _Row extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        icon,
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: iconBackgroundColor,
+          ),
+          child: Icon(
+            iconData,
+            size: 20,
+          ),
+        ),
         const Gap(8),
         Text(title),
         const Spacer(),
