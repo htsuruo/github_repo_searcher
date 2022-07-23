@@ -50,27 +50,27 @@ class _Body extends StatelessWidget {
         ...<Widget>[
           _Row(
             icon: const Icon(Icons.clear),
-            title: '言語',
+            title: context.l10n.language,
             value: repo.language ?? 'なし',
           ),
           _Row(
             icon: const Icon(Icons.star),
-            title: 'スター数',
+            title: context.l10n.star,
             value: repo.stargazersCount.compact,
           ),
           _Row(
             icon: const Icon(Icons.visibility),
-            title: 'ウォッチ数',
+            title: context.l10n.watcher,
             value: repo.watchersCount.compact,
           ),
           _Row(
             icon: const Icon(Icons.clear),
-            title: 'フォーク数',
+            title: context.l10n.fork,
             value: repo.forksCount.compact,
           ),
           _Row(
             icon: const Icon(Icons.clear),
-            title: 'イシュー数',
+            title: context.l10n.issue,
             value: repo.openIssuesCount.compact,
           ),
         ].intersperse(const Gap(16)),

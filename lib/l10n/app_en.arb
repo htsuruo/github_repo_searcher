@@ -2,5 +2,10 @@
     "@@locale": "en",
     "appTitle": "GitHub Repo Searcher",
     "repoSearch": "Repo Search",
-    "settings": "settings"
+    "settings": "settings",
+    "star": "star",
+    "language": "language",
+    "watcher": "watcher",
+    "fork": "fork",
+    "issue": "issue"
 }
