@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/app.dart';
 import 'package:github_repo_searcher/logger.dart';
+import 'package:go_router/go_router.dart';
 import 'package:simple_logger/simple_logger.dart';
 
 void main() {
@@ -13,6 +14,8 @@ void main() {
     kReleaseMode ? Level.SEVERE : Level.FINEST,
     includeCallerInfo: kDebugMode,
   );
+  // Webブラウザ表示時のURLから`#`を取り除く
+  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
   runApp(
     DevicePreview(
       // DevicePreviewはスマートフォンサイズでは設定がしづらいので、
