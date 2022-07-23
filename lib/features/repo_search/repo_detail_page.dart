@@ -49,31 +49,31 @@ class _Body extends StatelessWidget {
         const Gap(16),
         ...<Widget>[
           _Row(
-            iconData: Icons.clear,
+            iconData: Icons.language_outlined,
             iconBackgroundColor: Colors.amber,
             title: context.l10n.language,
             value: repo.language ?? 'なし',
           ),
           _Row(
-            iconData: Icons.star,
+            iconData: Icons.star_outline,
             iconBackgroundColor: Colors.amber,
             title: context.l10n.star,
             value: repo.stargazersCount.compact,
           ),
           _Row(
-            iconData: Icons.visibility,
+            iconData: Icons.visibility_outlined,
             iconBackgroundColor: Colors.amber,
             title: context.l10n.watcher,
             value: repo.watchersCount.compact,
           ),
           _Row(
-            iconData: Icons.clear,
+            iconData: Icons.fork_right_outlined,
             iconBackgroundColor: Colors.amber,
             title: context.l10n.fork,
             value: repo.forksCount.compact,
           ),
           _Row(
-            iconData: Icons.clear,
+            iconData: Icons.info_outline,
             iconBackgroundColor: Colors.amber,
             title: context.l10n.issue,
             value: repo.openIssuesCount.compact,
