@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/features/api/api_client.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
-import 'package:github_repo_searcher/features/repo_search/model/repo.dart';
+import 'package:github_repo_searcher/features/repo/model/repo.dart';
 
 import '../api/query_param.dart';
 

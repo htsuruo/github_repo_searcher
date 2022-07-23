@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/repo_search/repo_search_page.dart';
+import 'package:github_repo_searcher/features/repo/repo_search_page.dart';
 import 'package:github_repo_searcher/features/settings/settings_page.dart';
 
 enum BottomNavigationType {

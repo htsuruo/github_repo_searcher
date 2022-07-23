@@ -1,5 +1,5 @@
 import 'package:github_repo_searcher/features/base/base_page.dart';
-import 'package:github_repo_searcher/features/repo_search/repo_detail_page.dart';
+import 'package:github_repo_searcher/features/repo/repo_detail_page.dart';
 import 'package:github_repo_searcher/logger.dart';
 import 'package:go_router/go_router.dart';
 
