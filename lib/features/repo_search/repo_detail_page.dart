@@ -62,7 +62,7 @@ class _Body extends StatelessWidget {
             iconData: Icons.language_outlined,
             iconBackgroundColor: appColors.languageIconSurface,
             title: context.l10n.language,
-            value: repo.language ?? 'なし',
+            value: repo.language ?? '---',
           ),
           _Row(
             iconData: Icons.star_outline,
