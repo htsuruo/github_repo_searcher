@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:github_repo_searcher/extension.dart';
+import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:intersperse/intersperse.dart';
 
