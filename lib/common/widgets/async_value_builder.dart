@@ -18,8 +18,11 @@ class AsyncValueBuilder<T> extends StatelessWidget {
         child: CircularProgressIndicator.adaptive(),
       ),
       error: (error, stackTrace) => Center(
-        child: Text(
-          error.toString(),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Text(
+            error.toString(),
+          ),
         ),
       ),
       data: builder,
