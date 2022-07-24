@@ -40,7 +40,10 @@ class RepoSearchBar extends ConsumerWidget {
         fillColor: colorScheme.primary.withOpacity(.1),
         suffixIcon: IconButton(
           focusNode: controller.iconButtonNode,
-          onPressed: controller.search,
+          onPressed: () {
+            FocusScope.of(context).unfocus();
+            controller.search();
+          },
           icon: const Icon(Icons.search),
         ),
         border: OutlineInputBorder(
