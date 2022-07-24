@@ -15,9 +15,13 @@ class RepoSearchBar extends ConsumerWidget {
     final colorScheme = theme.colorScheme;
     final controller = ref.watch(repoSearchBarController.notifier);
     return TextFormField(
+      focusNode: controller.textFormFieldNode,
       controller: controller.searchTextController,
       autocorrect: false,
       autofocus: true,
+      onFieldSubmitted: (_) {
+        controller.search();
+      },
       style: theme.textTheme.bodyMedium!.copyWith(
         fontWeight: FontWeight.bold,
       ),
@@ -35,6 +39,7 @@ class RepoSearchBar extends ConsumerWidget {
         filled: true,
         fillColor: colorScheme.primary.withOpacity(.1),
         suffixIcon: IconButton(
+          focusNode: controller.iconButtonNode,
           onPressed: controller.search,
           icon: const Icon(Icons.search),
         ),

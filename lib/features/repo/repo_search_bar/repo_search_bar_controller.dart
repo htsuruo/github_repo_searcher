@@ -11,6 +11,8 @@ class RepoSearchBarNotifier extends StateNotifier<String> {
   RepoSearchBarNotifier(this._read) : super('');
   final Reader _read;
 
+  final textFormFieldNode = FocusNode(debugLabel: 'search_text_form_field');
+  final iconButtonNode = FocusNode(debugLabel: 'search_icon_button');
   final searchTextController = TextEditingController();
 
   void search() {
