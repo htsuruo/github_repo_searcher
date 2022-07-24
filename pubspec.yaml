@@ -41,6 +41,7 @@ dependencies:
   http:
   intersperse:
   intl:
+  shared_preferences:
   simple_logger:
   theme_tailor_annotation:
 

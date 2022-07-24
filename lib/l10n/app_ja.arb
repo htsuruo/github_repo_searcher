@@ -16,5 +16,9 @@
             "totalCount": {}
         }
     },
-    "repositoryNotFound": "リポジトリが見つかりませんでした"
+    "repositoryNotFound": "リポジトリが見つかりませんでした",
+    "appTheme": "アプリテーマ",
+    "systemTheme": "端末の設定に従う",
+    "lightTheme": "ライトモード",
+    "darkTheme": "ダークモード"
 }

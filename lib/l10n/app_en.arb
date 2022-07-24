@@ -16,5 +16,9 @@
             "totalCount": {}
         }
     },
-    "repositoryNotFound": "Repository Not Found"
+    "repositoryNotFound": "Repository Not Found",
+    "appTheme": "App Theme",
+    "systemTheme": "System",
+    "lightTheme": "Light",
+    "darkTheme": "Dark"
 }
