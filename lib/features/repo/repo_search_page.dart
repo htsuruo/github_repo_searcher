@@ -58,12 +58,15 @@ class RepoSearchPage extends ConsumerWidget {
                             itemCount: paging.items.length,
                             separatorBuilder: (context, _) => const Divider(),
                             itemBuilder: (context, index) {
-                              final repo = repos[index];
                               if (index >= repos.length) {
-                                return const Center(
-                                  child: CircularProgressIndicator.adaptive(),
+                                return const Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: Center(
+                                    child: CircularProgressIndicator.adaptive(),
+                                  ),
                                 );
                               }
+                              final repo = repos[index];
                               return ListTile(
                                 visualDensity: VisualDensity.compact,
                                 contentPadding: const EdgeInsets.symmetric(
