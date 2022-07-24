@@ -91,7 +91,6 @@ class _Tile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return SafeArea(
-      right: false,
       child: InkWell(
         onTap: () {
           ref.read(selectedRepo.notifier).state = repo;

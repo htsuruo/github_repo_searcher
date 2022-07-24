@@ -32,9 +32,6 @@ class RepoSearchBar extends ConsumerWidget {
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 20,
           ),
-          constraints: const BoxConstraints(
-            maxHeight: 40,
-          ),
           hintText: context.l10n.searchRepoHint,
           hintStyle: theme.textTheme.bodyMedium!.copyWith(
             color: Colors.grey,
