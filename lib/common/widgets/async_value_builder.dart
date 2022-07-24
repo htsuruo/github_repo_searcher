@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_repo_searcher/common/common.dart';
 
 class AsyncValueBuilder<T> extends StatelessWidget {
   const AsyncValueBuilder({
@@ -14,9 +15,9 @@ class AsyncValueBuilder<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return value.isLoading
-        ? const _Loading()
+        ? const CenteredCircularProgressIndicator()
         : value.when(
-            loading: _Loading.new,
+            loading: CenteredCircularProgressIndicator.new,
             error: (error, stackTrace) => SafeArea(
               child: Center(
                 child: Padding(
@@ -29,16 +30,5 @@ class AsyncValueBuilder<T> extends StatelessWidget {
             ),
             data: builder,
           );
-  }
-}
-
-class _Loading extends StatelessWidget {
-  const _Loading();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator.adaptive(),
-    );
   }
 }

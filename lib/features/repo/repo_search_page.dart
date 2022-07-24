@@ -60,9 +60,7 @@ class RepoSearchPage extends ConsumerWidget {
                               if (index >= repos.length) {
                                 return const Padding(
                                   padding: EdgeInsets.all(16),
-                                  child: Center(
-                                    child: CircularProgressIndicator.adaptive(),
-                                  ),
+                                  child: CenteredCircularProgressIndicator(),
                                 );
                               }
                               return RepoTile(repo: repos[index]);
