@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_searcher/common/common.dart';
+import 'package:github_repo_searcher/features/repo/widget/circular_icon_tag.dart';
 import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:intersperse/intersperse.dart';
 
 import 'model/repo.dart';
-import 'repo_not_found.dart';
+import 'widget/repo_not_found.dart';
 
 final selectedRepo = StateProvider<Repo?>((ref) => null);
 
@@ -145,21 +146,11 @@ class _Row extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
     return Row(
       children: [
-        Container(
-          padding: const EdgeInsets.all(6),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: iconBackgroundColor,
-          ),
-          child: Icon(
-            iconData,
-            size: 16,
-            color: colorScheme.surface,
-          ),
+        CircularIconTag(
+          iconBackgroundColor: iconBackgroundColor,
+          iconData: iconData,
         ),
         const Gap(8),
         Text(title),
