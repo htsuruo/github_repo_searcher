@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/settings/theme_mode/theme_mode_provider.dart';
+
+import 'theme_mode_provider.dart';
 
 class ThemeModeSelector extends ConsumerWidget {
   const ThemeModeSelector({super.key});

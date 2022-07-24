@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/settings/theme_mode/theme_mode_selector.dart';
+import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:go_router/go_router.dart';
 
 class SettingsPage extends StatelessWidget {

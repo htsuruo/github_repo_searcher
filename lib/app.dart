@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/settings/theme_mode/theme_mode_provider.dart';
 import 'package:github_repo_searcher/router.dart';
-import 'package:github_repo_searcher/theme/themes.dart';
+
+import 'theme/themes.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});

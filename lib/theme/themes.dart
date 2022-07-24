@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'extensions/app_colors.dart';
 
+export 'theme_mode/theme_mode_provider.dart';
+export 'theme_mode/theme_mode_selector.dart';
+
 extension ThemeDataX on ThemeData {
   AppColors get appColors => extension<AppColors>()!;
 }
