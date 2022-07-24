@@ -36,7 +36,7 @@ class RepoTile extends ConsumerWidget {
                   children: [
                     Text(
                       repo.fullName,
-                      style: theme.textTheme.bodyMedium!.copyWith(
+                      style: theme.textTheme.bodyLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
