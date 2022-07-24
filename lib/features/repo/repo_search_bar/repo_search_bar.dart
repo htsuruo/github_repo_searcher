@@ -30,7 +30,7 @@ class RepoSearchBar extends ConsumerWidget {
         ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
+            horizontal: 16,
           ),
           hintText: context.l10n.searchRepoHint,
           hintStyle: theme.textTheme.bodyMedium!.copyWith(
@@ -42,13 +42,7 @@ class RepoSearchBar extends ConsumerWidget {
           errorStyle: const TextStyle(fontSize: 0),
           filled: true,
           fillColor: colorScheme.primary.withOpacity(.1),
-          suffixIcon: IconButton(
-            onPressed: () {
-              FocusScope.of(context).unfocus();
-              controller.search();
-            },
-            icon: const Icon(Icons.search),
-          ),
+          prefixIcon: const Icon(Icons.search),
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(40),
