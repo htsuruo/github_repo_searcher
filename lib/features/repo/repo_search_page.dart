@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
 import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo/model/repo.dart';
@@ -14,10 +13,18 @@ class RepoSearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    const horizontalPadding = 16.0;
     return Column(
       children: [
         const SafeArea(
-          child: _SearchBox(totalCount: 0),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: horizontalPadding,
+              vertical: 8,
+            ),
+            child: RepoSearchBar(),
+          ),
         ),
         const Divider(),
         Expanded(
@@ -25,72 +32,63 @@ class RepoSearchPage extends ConsumerWidget {
             value: ref.watch(RepoSearchRepository.search),
             builder: (paging) {
               final repos = paging.items;
-              return ListView.separated(
-                itemCount: paging.items.length,
-                separatorBuilder: (context, _) => const Divider(),
-                itemBuilder: (context, index) {
-                  final repo = repos[index];
-                  if (index >= repos.length) {
-                    return const Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    );
-                  }
-                  return ListTile(
-                    visualDensity: VisualDensity.compact,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 2,
+              return Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: horizontalPadding,
+                        vertical: 4,
+                      ),
+                      child: Text(
+                        context.l10n.searchTotalCountResult(
+                          paging.totalCount.format,
+                        ),
+                        style: theme.textTheme.bodySmall,
+                      ),
                     ),
-                    onTap: () {
-                      ref.read(selectedRepo.notifier).state = repo;
-                      context.goNamed(
-                        'repo_detail',
-                        params: {'repoId': repo.id.toString()},
-                      );
-                    },
-                    title: Text(repo.fullName),
-                    subtitle: Text(
-                      repo.description,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
+                  ),
+                  Expanded(
+                    child: ListView.separated(
+                      itemCount: paging.items.length,
+                      separatorBuilder: (context, _) => const Divider(),
+                      itemBuilder: (context, index) {
+                        final repo = repos[index];
+                        if (index >= repos.length) {
+                          return const Center(
+                            child: CircularProgressIndicator.adaptive(),
+                          );
+                        }
+                        return ListTile(
+                          visualDensity: VisualDensity.compact,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: horizontalPadding,
+                            vertical: 2,
+                          ),
+                          onTap: () {
+                            ref.read(selectedRepo.notifier).state = repo;
+                            context.goNamed(
+                              'repo_detail',
+                              params: {'repoId': repo.id.toString()},
+                            );
+                          },
+                          title: Text(repo.fullName),
+                          subtitle: Text(
+                            repo.description,
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          trailing: const Icon(Icons.navigate_next),
+                        );
+                      },
                     ),
-                    trailing: const Icon(Icons.navigate_next),
-                  );
-                },
+                  ),
+                ],
               );
             },
           ),
         ),
-      ],
-    );
-  }
-}
-
-class _SearchBox extends StatelessWidget {
-  const _SearchBox({required this.totalCount});
-
-  final int totalCount;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Gap(6),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: RepoSearchBar(),
-        ),
-        const Gap(2),
-        Align(
-          alignment: Alignment.centerRight,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: Text(
-              context.l10n.searchTotalCountResult(totalCount.format),
-            ),
-          ),
-        ),
-        const Gap(4),
       ],
     );
   }
