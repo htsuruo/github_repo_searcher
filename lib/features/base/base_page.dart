@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/gen/assets.gen.dart';
 
 import 'bottom_navigation_type.dart';
@@ -16,29 +17,31 @@ class _BasePageState extends State<BasePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const _GitHubLogo(),
-      ),
-      body: IndexedStack(
-        index: currentIndex,
-        children: types.map((type) => type.page).toList(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        items: types
-            .map(
-              (type) => BottomNavigationBarItem(
-                icon: Icon(type.iconData),
-                label: type.label(context),
-              ),
-            )
-            .toList(),
+    return UnfocusOnTap(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const _GitHubLogo(),
+        ),
+        body: IndexedStack(
+          index: currentIndex,
+          children: types.map((type) => type.page).toList(),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          items: types
+              .map(
+                (type) => BottomNavigationBarItem(
+                  icon: Icon(type.iconData),
+                  label: type.label(context),
+                ),
+              )
+              .toList(),
+        ),
       ),
     );
   }
