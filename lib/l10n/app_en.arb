@@ -9,12 +9,11 @@
     "watcher": "watcher",
     "fork": "fork",
     "issue": "issue",
-    "searchRepoHint": "Search",
+    "searchRepoHint": "Please enter a search query",
     "searchTotalCountResult": "Total {totalCount}",
     "@searchTotalCountResult": {
         "placeholders": {
             "totalCount": {}
         }
-    },
-    "searchQueryEmptyValidation": "Please enter a search query."
+    }
 }

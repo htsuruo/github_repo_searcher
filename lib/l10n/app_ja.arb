@@ -9,12 +9,11 @@
     "watcher": "ウォッチ",
     "fork": "フォーク",
     "issue": "イシュー",
-    "searchRepoHint": "検索",
+    "searchRepoHint": "検索したい文字列を入力",
     "searchTotalCountResult": "全 {totalCount} 件",
     "@searchTotalCountResult": {
         "placeholders": {
             "totalCount": {}
         }
-    },
-    "searchQueryEmptyValidation": "検索したい文字列を入力して下さい"
+    }
 }
