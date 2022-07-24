@@ -23,9 +23,9 @@ class RepoSearchBar extends ConsumerWidget {
         onFieldSubmitted: (_) {
           controller.search();
         },
-        validator: (value) => value == null || value.isEmpty
-            ? context.l10n.searchQueryEmptyValidation
-            : null,
+        // `formGlobalKey`のvalidatorを機能させるための指定。
+        // 後述の`errorStyle`のコメント参照。
+        validator: (value) => value == null || value.isEmpty ? '' : null,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: theme.textTheme.bodyMedium!.copyWith(
           fontWeight: FontWeight.bold,
@@ -34,16 +34,17 @@ class RepoSearchBar extends ConsumerWidget {
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 20,
           ),
-          // constraints: const BoxConstraints(
-          //   maxHeight: 40,
-          // ),
+          constraints: const BoxConstraints(
+            maxHeight: 40,
+          ),
           hintText: context.l10n.searchRepoHint,
           hintStyle: theme.textTheme.bodyMedium!.copyWith(
             color: Colors.grey,
           ),
-          errorStyle: theme.textTheme.bodySmall!.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          // validatorは機能させたいが、エラーメッセージとしては不要なので隠す処理
+          // 現状validatorはエラーメッセージと密に結合されていて引き剥がせないための措置。
+          // ref. https://stackoverflow.com/a/60024914
+          errorStyle: const TextStyle(fontSize: 0),
           filled: true,
           fillColor: colorScheme.primary.withOpacity(.1),
           suffixIcon: IconButton(
