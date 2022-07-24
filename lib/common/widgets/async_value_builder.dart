@@ -17,11 +17,13 @@ class AsyncValueBuilder<T> extends StatelessWidget {
         ? const _Loading()
         : value.when(
             loading: _Loading.new,
-            error: (error, stackTrace) => Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  error.toString(),
+            error: (error, stackTrace) => SafeArea(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    error.toString(),
+                  ),
                 ),
               ),
             ),

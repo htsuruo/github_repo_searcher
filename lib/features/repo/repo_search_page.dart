@@ -16,81 +16,88 @@ class RepoSearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     const horizontalPadding = 16.0;
-    return Column(
-      children: [
-        const SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: horizontalPadding,
-              vertical: 8,
+    return UnfocusOnTap(
+      child: Column(
+        children: [
+          const SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: horizontalPadding,
+                vertical: 8,
+              ),
+              child: RepoSearchBar(),
             ),
-            child: RepoSearchBar(),
           ),
-        ),
-        const Divider(),
-        Expanded(
-          child: AsyncValueBuilder<Paging<Repo>>(
-            value: ref.watch(RepoSearchRepository.search),
-            builder: (paging) {
-              final repos = paging.items;
-              return Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: horizontalPadding,
-                        vertical: 4,
-                      ),
-                      child: Text(
-                        context.l10n.searchTotalCountResult(
-                          paging.totalCount.format,
+          const Divider(),
+          Expanded(
+            child: AsyncValueBuilder<Paging<Repo>>(
+              value: ref.watch(RepoSearchRepository.search),
+              builder: (paging) {
+                final repos = paging.items;
+                return Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: horizontalPadding,
+                          vertical: 4,
                         ),
-                        style: theme.textTheme.bodySmall,
+                        child: Text(
+                          context.l10n.searchTotalCountResult(
+                            paging.totalCount.format,
+                          ),
+                          style: theme.textTheme.bodySmall,
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: ListView.separated(
-                      itemCount: paging.items.length,
-                      separatorBuilder: (context, _) => const Divider(),
-                      itemBuilder: (context, index) {
-                        final repo = repos[index];
-                        if (index >= repos.length) {
-                          return const Center(
-                            child: CircularProgressIndicator.adaptive(),
-                          );
-                        }
-                        return ListTile(
-                          visualDensity: VisualDensity.compact,
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: horizontalPadding,
-                            vertical: 2,
-                          ),
-                          onTap: () {
-                            ref.read(selectedRepo.notifier).state = repo;
-                            context.goNamed(
-                              'repo_detail',
-                              params: {'repoId': repo.id.toString()},
-                            );
-                          },
-                          title: Text(repo.fullName),
-                          subtitle: Text(
-                            repo.description,
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          trailing: const Icon(Icons.navigate_next),
-                        );
-                      },
+                    Expanded(
+                      child: repos.isEmpty
+                          ? const Center(
+                              child: Text('Not Found'),
+                            )
+                          : ListView.separated(
+                              itemCount: paging.items.length,
+                              separatorBuilder: (context, _) => const Divider(),
+                              itemBuilder: (context, index) {
+                                final repo = repos[index];
+                                if (index >= repos.length) {
+                                  return const Center(
+                                    child: CircularProgressIndicator.adaptive(),
+                                  );
+                                }
+                                return ListTile(
+                                  visualDensity: VisualDensity.compact,
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: horizontalPadding,
+                                    vertical: 2,
+                                  ),
+                                  onTap: () {
+                                    ref.read(selectedRepo.notifier).state =
+                                        repo;
+                                    context.goNamed(
+                                      'repo_detail',
+                                      params: {'repoId': repo.id.toString()},
+                                    );
+                                  },
+                                  title: Text(repo.fullName),
+                                  subtitle: Text(
+                                    repo.description,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  trailing: const Icon(Icons.navigate_next),
+                                );
+                              },
+                            ),
                     ),
-                  ),
-                ],
-              );
-            },
+                  ],
+                );
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
