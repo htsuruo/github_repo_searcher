@@ -4,9 +4,10 @@ import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo/model/repo.dart';
 import 'package:github_repo_searcher/features/repo/repo_detail_page.dart';
-import 'package:github_repo_searcher/features/repo/repo_search_bar.dart';
 import 'package:github_repo_searcher/features/repo/repo_search_repository.dart';
 import 'package:go_router/go_router.dart';
+
+import 'repo_search_bar/repo_search_bar.dart';
 
 class RepoSearchPage extends ConsumerWidget {
   const RepoSearchPage({super.key});

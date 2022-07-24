@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/extensions/extensions.dart';
-import 'package:github_repo_searcher/features/repo/repo_search_bar_controller.dart';
+
+import 'repo_search_bar_controller.dart';
+
+export 'repo_search_bar_controller.dart';
 
 class RepoSearchBar extends ConsumerWidget {
   const RepoSearchBar({super.key});
