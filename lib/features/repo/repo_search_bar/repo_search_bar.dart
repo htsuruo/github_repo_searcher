@@ -18,7 +18,6 @@ class RepoSearchBar extends ConsumerWidget {
       focusNode: controller.textFormFieldNode,
       controller: controller.searchTextController,
       autocorrect: false,
-      autofocus: true,
       onFieldSubmitted: (_) {
         controller.search();
       },
