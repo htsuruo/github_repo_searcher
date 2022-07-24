@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/features/api/api_client.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo/model/repo.dart';
+import 'package:github_repo_searcher/features/repo/repo_search_page.dart';
 
 import '../api/query_param.dart';
 import 'repo_search_bar/repo_search_bar.dart';
@@ -9,10 +10,12 @@ import 'repo_search_bar/repo_search_bar.dart';
 abstract class RepoSearchRepository {
   static final search = FutureProvider((ref) {
     final query = ref.watch(repoSearchBarController);
+    final page = ref.watch(searchPage);
     return ref.watch(apiClient).get<Paging<Repo>>(
           path: '/search/repositories',
           queryParam: QueryParam(
             q: query,
+            page: page,
           ),
           decoder: (json) => Paging.fromJson(json, Repo.fromJson),
         );

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo/model/repo.dart';
 import 'package:github_repo_searcher/features/repo/widget/repo_not_found.dart';
 import 'package:github_repo_searcher/features/repo/widget/repo_tile.dart';
 
 import 'repo_search_bar/repo_search_bar.dart';
 import 'repo_search_repository.dart';
+
+final searchPage = StateProvider((ref) => 1);
 
 class RepoSearchPage extends ConsumerWidget {
   const RepoSearchPage({super.key});
@@ -29,7 +30,7 @@ class RepoSearchPage extends ConsumerWidget {
         ),
         const Divider(),
         Expanded(
-          child: AsyncValueBuilder<Paging<Repo>>(
+          child: AsyncValuePagingBuilder<Repo>(
             value: ref.watch(RepoSearchRepository.search),
             builder: (paging) {
               final repos = paging.items;
@@ -54,10 +55,13 @@ class RepoSearchPage extends ConsumerWidget {
                     child: repos.isEmpty
                         ? const RepoNotFound()
                         : ListView.separated(
-                            itemCount: paging.items.length,
+                            itemCount: paging.items.length + 1,
                             separatorBuilder: (context, _) => const Divider(),
                             itemBuilder: (context, index) {
                               if (index >= repos.length) {
+                                WidgetsBinding.instance.addPostFrameCallback(
+                                  (_) => ref.read(searchPage.notifier).state++,
+                                );
                                 return const Padding(
                                   padding: EdgeInsets.all(16),
                                   child: CenteredCircularProgressIndicator(),
