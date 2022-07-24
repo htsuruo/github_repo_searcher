@@ -17,7 +17,6 @@ class RepoSearchBar extends ConsumerWidget {
     return Form(
       key: controller.formGlobalKey,
       child: TextFormField(
-        focusNode: controller.textFormFieldNode,
         controller: controller.searchTextController,
         autocorrect: false,
         onFieldSubmitted: (_) {
@@ -26,7 +25,6 @@ class RepoSearchBar extends ConsumerWidget {
         // `formGlobalKey`のvalidatorを機能させるための指定。
         // 後述の`errorStyle`のコメント参照。
         validator: (value) => value == null || value.isEmpty ? '' : null,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
         style: theme.textTheme.bodyMedium!.copyWith(
           fontWeight: FontWeight.bold,
         ),
@@ -48,7 +46,6 @@ class RepoSearchBar extends ConsumerWidget {
           filled: true,
           fillColor: colorScheme.primary.withOpacity(.1),
           suffixIcon: IconButton(
-            focusNode: controller.iconButtonNode,
             onPressed: () {
               FocusScope.of(context).unfocus();
               controller.search();

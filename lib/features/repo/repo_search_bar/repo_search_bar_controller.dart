@@ -16,8 +16,6 @@ class RepoSearchBarNotifier extends StateNotifier<String> {
   }
 
   final formGlobalKey = GlobalKey<FormState>();
-  final textFormFieldNode = FocusNode(debugLabel: 'search_text_form_field');
-  final iconButtonNode = FocusNode(debugLabel: 'search_icon_button');
   final searchTextController = TextEditingController();
 
   void search() {
