@@ -6,6 +6,7 @@ import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:intersperse/intersperse.dart';
 
 import 'model/repo.dart';
+import 'repo_not_found.dart';
 
 final selectedRepo = StateProvider<Repo?>((ref) => null);
 
@@ -26,7 +27,7 @@ class RepoDetailPage extends ConsumerWidget {
         ),
       ),
       body: repo == null
-          ? Center(child: Text(context.l10n.repositoryNotFound))
+          ? const RepoNotFound()
           : SafeArea(
               child: _Body(repo: repo),
             ),

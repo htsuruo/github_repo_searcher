@@ -4,6 +4,7 @@ import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/features/pagination/model/paging.dart';
 import 'package:github_repo_searcher/features/repo/model/repo.dart';
 import 'package:github_repo_searcher/features/repo/repo_detail_page.dart';
+import 'package:github_repo_searcher/features/repo/repo_not_found.dart';
 import 'package:github_repo_searcher/features/repo/repo_search_repository.dart';
 import 'package:go_router/go_router.dart';
 
@@ -52,9 +53,7 @@ class RepoSearchPage extends ConsumerWidget {
                   ),
                   Expanded(
                     child: repos.isEmpty
-                        ? Center(
-                            child: Text(context.l10n.repositoryNotFound),
-                          )
+                        ? const RepoNotFound()
                         : ListView.separated(
                             itemCount: paging.items.length,
                             separatorBuilder: (context, _) => const Divider(),
