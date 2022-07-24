@@ -15,13 +15,16 @@ class RepoSearchBarNotifier extends StateNotifier<String> {
     state = _initialQuery;
   }
 
+  final formGlobalKey = GlobalKey<FormState>();
   final textFormFieldNode = FocusNode(debugLabel: 'search_text_form_field');
   final iconButtonNode = FocusNode(debugLabel: 'search_icon_button');
   final searchTextController = TextEditingController();
 
   void search() {
-    final inputText = searchTextController.text;
-    logger.info(inputText);
-    state = inputText;
+    if (formGlobalKey.currentState!.validate()) {
+      final inputText = searchTextController.text;
+      logger.info('search: $inputText');
+      state = inputText;
+    }
   }
 }

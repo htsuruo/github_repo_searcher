@@ -15,12 +15,17 @@ class RepoSearchBar extends ConsumerWidget {
     final colorScheme = theme.colorScheme;
     final controller = ref.watch(repoSearchBarController.notifier);
     return TextFormField(
+      key: controller.formGlobalKey,
       focusNode: controller.textFormFieldNode,
       controller: controller.searchTextController,
       autocorrect: false,
       onFieldSubmitted: (_) {
         controller.search();
       },
+      validator: (value) => value == null || value.isEmpty
+          ? context.l10n.searchQueryEmptyValidation
+          : null,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       style: theme.textTheme.bodyMedium!.copyWith(
         fontWeight: FontWeight.bold,
       ),
@@ -28,12 +33,15 @@ class RepoSearchBar extends ConsumerWidget {
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 20,
         ),
-        constraints: const BoxConstraints(
-          maxHeight: 40,
-        ),
+        // constraints: const BoxConstraints(
+        //   maxHeight: 40,
+        // ),
         hintText: context.l10n.searchRepoHint,
         hintStyle: theme.textTheme.bodyMedium!.copyWith(
           color: Colors.grey,
+        ),
+        errorStyle: theme.textTheme.bodySmall!.copyWith(
+          fontWeight: FontWeight.bold,
         ),
         filled: true,
         fillColor: colorScheme.primary.withOpacity(.1),

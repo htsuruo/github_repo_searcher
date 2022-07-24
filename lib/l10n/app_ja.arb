@@ -15,5 +15,6 @@
         "placeholders": {
             "totalCount": {}
         }
-    }
+    },
+    "searchQueryEmptyValidation": "検索したい文字列を入力して下さい"
 }
