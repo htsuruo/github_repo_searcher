@@ -15,5 +15,6 @@
         "placeholders": {
             "totalCount": {}
         }
-    }
+    },
+    "repositoryNotFound": "リポジトリが見つかりませんでした"
 }

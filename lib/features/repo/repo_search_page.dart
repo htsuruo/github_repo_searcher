@@ -52,8 +52,8 @@ class RepoSearchPage extends ConsumerWidget {
                   ),
                   Expanded(
                     child: repos.isEmpty
-                        ? const Center(
-                            child: Text('Not Found'),
+                        ? Center(
+                            child: Text(context.l10n.repositoryNotFound),
                           )
                         : ListView.separated(
                             itemCount: paging.items.length,

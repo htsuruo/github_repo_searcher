@@ -26,7 +26,7 @@ class RepoDetailPage extends ConsumerWidget {
         ),
       ),
       body: repo == null
-          ? const Center(child: Text('Not Found'))
+          ? Center(child: Text(context.l10n.repositoryNotFound))
           : SafeArea(
               child: _Body(repo: repo),
             ),
