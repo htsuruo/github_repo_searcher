@@ -1,16 +1,12 @@
 # github_repo_searcher
 
-A new Flutter project.
+本レポジトリは、ゆめみ社から公開されているGitHubのリポジトリ検索の課題を取り組んでみたものです。
 
-## Getting Started
+[yumemi-inc/flutter-engineer-codecheck: This is a code check task for Flutter engineers employment in YUMEMI.](https://github.com/yumemi-inc/flutter-engineer-codecheck)
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+| title | title | title | title |
+| --- | --- | --- | --- |
+| ![light_en_list](https://user-images.githubusercontent.com/12729025/181021992-11f98ba5-aa8f-4568-a353-1c6f0d0c5b9d.png) | ![light_en_empty](https://user-images.githubusercontent.com/12729025/181022064-de1840ca-da64-40a5-bedd-1ea2217630ea.png) | ![dark_en_list](https://user-images.githubusercontent.com/12729025/181022037-6f1abd4a-2c82-4881-a720-6730e822cda0.png) | ![dark_en_detail](https://user-images.githubusercontent.com/12729025/181022081-4abe8fc7-775e-40a8-b11b-76839fb6ad03.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
