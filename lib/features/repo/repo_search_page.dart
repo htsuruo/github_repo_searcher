@@ -7,7 +7,7 @@ import 'package:github_repo_searcher/features/repo/widget/repo_not_found.dart';
 import 'package:github_repo_searcher/features/repo/widget/repo_tile.dart';
 
 import 'repo_search_bar/repo_search_bar.dart';
-import 'repo_search_repository.dart';
+import 'repo_search_provider.dart';
 
 class RepoSearchPage extends ConsumerWidget {
   const RepoSearchPage({super.key});
@@ -30,7 +30,7 @@ class RepoSearchPage extends ConsumerWidget {
         const Divider(),
         Expanded(
           child: AsyncValueBuilder<Paging<Repo>>(
-            value: ref.watch(RepoSearchRepository.search),
+            value: ref.watch(searchRepoProvider),
             builder: (paging) {
               final repos = paging.items;
               return Column(
