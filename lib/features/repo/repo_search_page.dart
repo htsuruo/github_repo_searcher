@@ -30,7 +30,7 @@ class RepoSearchPage extends ConsumerWidget {
         const Divider(),
         Expanded(
           child: AsyncValueBuilder<Paging<Repo>>(
-            value: ref.watch(searchRepoProvider),
+            value: ref.watch(searchRepoPagingProvider(1)),
             builder: (paging) {
               final repos = paging.items;
               return Column(
