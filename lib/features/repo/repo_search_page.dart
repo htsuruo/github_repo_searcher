@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/pagination/model/paging.dart';
-import 'package:github_repo_searcher/features/repo/model/repo.dart';
-import 'package:github_repo_searcher/features/repo/widget/repo_not_found.dart';
-import 'package:github_repo_searcher/features/repo/widget/repo_tile.dart';
 
 import 'repo_search_bar/repo_search_bar.dart';
 import 'repo_search_provider.dart';
+import 'widget/repo_not_found.dart';
+import 'widget/repo_tile.dart';
 
 class RepoSearchPage extends ConsumerWidget {
   const RepoSearchPage({super.key});
@@ -16,6 +14,7 @@ class RepoSearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     const horizontalPadding = 16.0;
+    final totalCount = ref.watch(repoTotalCountProvider);
     return Column(
       children: [
         const SafeArea(
@@ -29,10 +28,19 @@ class RepoSearchPage extends ConsumerWidget {
         ),
         const Divider(),
         Expanded(
-          child: AsyncValueBuilder<Paging<Repo>>(
-            value: ref.watch(searchRepoPagingProvider(1)),
-            builder: (paging) {
-              final repos = paging.items;
+          child: totalCount.when(
+            loading: () => const CenteredCircularProgressIndicator(),
+            error: (error, stackTrace) => SafeArea(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    error.toString(),
+                  ),
+                ),
+              ),
+            ),
+            data: (totalCount) {
               return Column(
                 children: [
                   Align(
@@ -43,27 +51,31 @@ class RepoSearchPage extends ConsumerWidget {
                         vertical: 4,
                       ),
                       child: Text(
-                        context.l10n.searchTotalCountResult(
-                          paging.totalCount.format,
-                        ),
+                        context.l10n.searchTotalCountResult(totalCount.format),
                         style: theme.textTheme.bodySmall,
                       ),
                     ),
                   ),
                   Expanded(
-                    child: repos.isEmpty
+                    child: totalCount < 1
                         ? const RepoNotFound()
                         : ListView.separated(
-                            itemCount: paging.items.length,
+                            itemCount: totalCount,
                             separatorBuilder: (context, _) => const Divider(),
                             itemBuilder: (context, index) {
-                              if (index >= repos.length) {
-                                return const Padding(
-                                  padding: EdgeInsets.all(16),
-                                  child: CenteredCircularProgressIndicator(),
-                                );
-                              }
-                              return RepoTile(repo: repos[index]);
+                              final currentRepoFromIndex = ref
+                                  .watch(searchRepoPagingProvider(index ~/ 30))
+                                  .whenData(
+                                    (paging) => paging.items[index % 30],
+                                  );
+                              return ProviderScope(
+                                overrides: [
+                                  currentRepoProvider.overrideWithValue(
+                                    currentRepoFromIndex,
+                                  )
+                                ],
+                                child: const RepoTile(),
+                              );
                             },
                           ),
                   ),
