@@ -16,6 +16,8 @@ class AsyncValueBuilder<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     return value.isLoading
         ? const CenteredCircularProgressIndicator()
         : value.when(
@@ -31,6 +33,7 @@ class AsyncValueBuilder<T> extends StatelessWidget {
               ),
             ),
             data: (data) => RefreshIndicator(
+              backgroundColor: colorScheme.onPrimary,
               onRefresh: onRefresh,
               child: builder(data),
             ),
