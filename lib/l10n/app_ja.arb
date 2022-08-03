@@ -10,12 +10,7 @@
     "fork": "フォーク",
     "issue": "イシュー",
     "searchRepoHint": "検索したい文字列を入力",
-    "searchTotalCountResult": "全 {totalCount} 件",
-    "@searchTotalCountResult": {
-        "placeholders": {
-            "totalCount": {}
-        }
-    },
+    "searchResultTotalCount": "全 {totalCount} 件",
     "repositoryNotFound": "リポジトリが見つかりませんでした",
     "appTheme": "アプリテーマ",
     "systemTheme": "端末の設定に従う",

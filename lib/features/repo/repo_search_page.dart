@@ -41,7 +41,7 @@ class RepoSearchPage extends ConsumerWidget {
                         vertical: 4,
                       ),
                       child: Text(
-                        context.l10n.searchTotalCountResult(totalCount.format),
+                        context.l10n.searchResultTotalCount(totalCount),
                         style: theme.textTheme.bodySmall,
                       ),
                     ),

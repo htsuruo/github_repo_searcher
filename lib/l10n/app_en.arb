@@ -10,10 +10,13 @@
     "fork": "fork",
     "issue": "issue",
     "searchRepoHint": "Please enter a search query",
-    "searchTotalCountResult": "Total {totalCount}",
-    "@searchTotalCountResult": {
+    "searchResultTotalCount": "Total {totalCount}",
+    "@searchResultTotalCount": {
         "placeholders": {
-            "totalCount": {}
+            "totalCount": {
+                "type": "int",
+                "format": "decimalPattern"
+            }
         }
     },
     "repositoryNotFound": "Repository Not Found",
