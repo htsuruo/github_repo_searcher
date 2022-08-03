@@ -29,6 +29,7 @@ class RepoSearchPage extends ConsumerWidget {
         Expanded(
           child: AsyncValueBuilder<int>(
             value: ref.watch(repoTotalCountProvider),
+            onRefresh: () => ref.refresh(repoTotalCountProvider.future),
             builder: (totalCount) {
               return Column(
                 children: [

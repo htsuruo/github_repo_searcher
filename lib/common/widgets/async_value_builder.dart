@@ -7,10 +7,12 @@ class AsyncValueBuilder<T> extends StatelessWidget {
     super.key,
     required this.value,
     required this.builder,
+    required this.onRefresh,
   });
 
   final AsyncValue<T> value;
   final Widget Function(T data) builder;
+  final RefreshCallback onRefresh;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,10 @@ class AsyncValueBuilder<T> extends StatelessWidget {
                 ),
               ),
             ),
-            data: builder,
+            data: (data) => RefreshIndicator(
+              onRefresh: onRefresh,
+              child: builder(data),
+            ),
           );
   }
 }
