@@ -6,10 +6,12 @@ targets:
           include:
             - lib/**/*_state.dart
             - lib/features/**/model/*.dart
+            - lib/services/**/model/*.dart
       json_serializable:
         generate_for:
           include:
             - lib/features/**/model/*.dart
+            - lib/services/**/model/*.dart
         options:
           any_map: true
           explicit_to_json: true

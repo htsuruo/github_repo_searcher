@@ -2,10 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_searcher/features/api/model/api_error_body.dart';
-import 'package:github_repo_searcher/features/api/model/api_exception.dart';
-import 'package:github_repo_searcher/features/api/query_param.dart';
 import 'package:http/http.dart' as http;
+
+import 'model/api_error_body.dart';
+import 'model/api_exception.dart';
+import 'query_param.dart';
 
 final apiClient = Provider((ref) => ApiClient());
 

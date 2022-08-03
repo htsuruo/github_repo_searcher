@@ -1,4 +1,4 @@
-import 'package:github_repo_searcher/features/api/model/api_error_body.dart';
+import 'api_error_body.dart';
 
 class ApiException implements Exception {
   ApiException({
