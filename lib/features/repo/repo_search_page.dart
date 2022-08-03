@@ -14,7 +14,6 @@ class RepoSearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     const horizontalPadding = 16.0;
-    final totalCount = ref.watch(repoTotalCountProvider);
     return Column(
       children: [
         const SafeArea(
@@ -28,19 +27,9 @@ class RepoSearchPage extends ConsumerWidget {
         ),
         const Divider(),
         Expanded(
-          child: totalCount.when(
-            loading: () => const CenteredCircularProgressIndicator(),
-            error: (error, stackTrace) => SafeArea(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    error.toString(),
-                  ),
-                ),
-              ),
-            ),
-            data: (totalCount) {
+          child: AsyncValueBuilder<int>(
+            value: ref.watch(repoTotalCountProvider),
+            builder: (totalCount) {
               return Column(
                 children: [
                   Align(
