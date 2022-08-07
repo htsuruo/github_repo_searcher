@@ -2,7 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/features/repo/model/repo.dart';
 import 'package:github_repo_searcher/services/api/api_client.dart';
 import 'package:github_repo_searcher/services/api/query_param.dart';
+import 'package:github_repo_searcher/services/paging/api_paging_notifier.dart';
 import 'package:github_repo_searcher/services/paging/model/paging.dart';
+import 'package:github_repo_searcher/services/paging/paging_state.dart';
 
 import 'repo_search_bar/repo_search_bar.dart';
 
@@ -27,4 +29,23 @@ final repoTotalCountProvider = Provider<AsyncValue<int>>((ref) {
 
 final currentRepoProvider = Provider<AsyncValue<Repo>>(
   (ref) => throw UnimplementedError(),
+);
+
+final reposPagingController =
+    StateNotifierProvider<ApiPagingNotifier<Repo>, PagingState<Repo>>(
+  (ref) {
+    final query = ref.watch(repoSearchBarController);
+    return ApiPagingNotifier(
+      fetcher: ({required from, required size}) async {
+        return ref.watch(apiClient).get<Paging<Repo>>(
+              path: '/search/repositories',
+              queryParam: QueryParam(
+                q: query,
+                page: 1,
+              ),
+              decoder: (json) => Paging.fromJson(json, Repo.fromJson),
+            );
+      },
+    );
+  },
 );

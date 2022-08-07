@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/repo/repo_search_provider.dart';
+import 'package:github_repo_searcher/features/repo/model/repo.dart';
 import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,84 +10,68 @@ import '../repo_detail_page.dart';
 import 'circular_icon_tag.dart';
 
 class RepoTile extends ConsumerWidget {
-  const RepoTile({super.key});
+  const RepoTile({super.key, required this.repo});
+
+  final Repo repo;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final repo = ref.watch(currentRepoProvider);
     const padding = EdgeInsets.symmetric(
       horizontal: 16,
       vertical: 8,
     );
-    return SafeArea(
-      child: repo.when(
-        loading: () => const Padding(
-          padding: padding,
-          child: _ShimmerTile(),
-        ),
-        error: (error, stackTrace) => Center(
-          child: Padding(
-            padding: padding,
-            child: Text(error.toString()),
-          ),
-        ),
-        data: (repo) {
-          return InkWell(
-            onTap: () {
-              ref.read(selectedRepo.notifier).state = repo;
-              context.goNamed(
-                'repo_detail',
-                params: {'repoId': repo.id.toString()},
-              );
-            },
-            child: Padding(
-              padding: padding,
-              child: Row(
+    return InkWell(
+      onTap: () {
+        ref.read(selectedRepo.notifier).state = repo;
+        context.goNamed(
+          'repo_detail',
+          params: {'repoId': repo.id.toString()},
+        );
+      },
+      child: Padding(
+        padding: padding,
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          repo.fullName,
-                          style: theme.textTheme.bodyLarge!.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          repo.description,
-                          style: theme.textTheme.bodySmall,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const Gap(4),
-                        Row(
-                          children: [
-                            _TagLabel(
-                              iconBackgroundColor:
-                                  theme.appColors.languageIconSurface,
-                              iconData: Icons.language,
-                              value: repo.language ?? '---',
-                            ),
-                            const Gap(8),
-                            _TagLabel(
-                              iconBackgroundColor:
-                                  theme.appColors.starIconSurface,
-                              iconData: Icons.star,
-                              value: repo.stargazersCount.compact,
-                            ),
-                          ],
-                        ),
-                      ],
+                  Text(
+                    repo.fullName,
+                    style: theme.textTheme.bodyLarge!.copyWith(
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Icon(Icons.navigate_next),
+                  Text(
+                    repo.description,
+                    style: theme.textTheme.bodySmall,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const Gap(4),
+                  Row(
+                    children: [
+                      _TagLabel(
+                        iconBackgroundColor:
+                            theme.appColors.languageIconSurface,
+                        iconData: Icons.language,
+                        value: repo.language ?? '---',
+                      ),
+                      const Gap(8),
+                      _TagLabel(
+                        iconBackgroundColor: theme.appColors.starIconSurface,
+                        iconData: Icons.star,
+                        value: repo.stargazersCount.compact,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
-          );
-        },
+            const Icon(Icons.navigate_next),
+          ],
+        ),
       ),
     );
   }

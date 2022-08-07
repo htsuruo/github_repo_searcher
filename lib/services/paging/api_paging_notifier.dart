@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/logger.dart';
+import 'package:github_repo_searcher/services/paging/model/paging.dart';
 import 'package:github_repo_searcher/services/paging/paging_state.dart';
 
-typedef PagingFetcher<T> = Future<List<T>> Function({
+typedef PagingFetcher<T> = Future<Paging<T>> Function({
   required int from,
   required int size,
 });
 
-class PagingNotifier<T> extends StateNotifier<AsyncValue<PagingState<T>>> {
-  PagingNotifier({
+class ApiPagingNotifier<T> extends StateNotifier<AsyncValue<PagingState<T>>> {
+  ApiPagingNotifier({
     required this.fetcher,
     this.defaultPagingSize = 10,
-  }) : super(const AsyncLoading());
+    int initialSize = 20,
+  }) : super(const AsyncLoading()) {
+    _loadMoreIfNeeded(pagingSize: initialSize);
+  }
 
   final PagingFetcher<T> fetcher;
   final int defaultPagingSize;
@@ -37,9 +41,9 @@ class PagingNotifier<T> extends StateNotifier<AsyncValue<PagingState<T>>> {
         return PagingState(
           items: <T>[
             ...state.value?.items ?? [],
-            ...fetchedItems.take(pagingSize),
+            ...fetchedItems.items.take(pagingSize),
           ],
-          hasMore: fetchedItems.length > pagingSize,
+          hasMore: fetchedItems.items.length > pagingSize,
         );
       }))
           .copyWithPrevious(state);
