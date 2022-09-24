@@ -12,30 +12,30 @@ extension ThemeDataX on ThemeData {
 class Themes {
   Themes._();
 
-  static final light = ThemeData.from(
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-    useMaterial3: true,
-  ).copyWith(
-    extensions: [
-      AppColors.light,
-    ],
-    bottomNavigationBarTheme: _bottomNavigationBarTheme,
-    dividerTheme: _dividerTheme,
-  );
+  ThemeData get light => ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        useMaterial3: true,
+      ).copyWith(
+        extensions: [
+          AppColors.light,
+        ],
+        bottomNavigationBarTheme: _bottomNavigationBarTheme,
+        dividerTheme: _dividerTheme,
+      );
 
-  static final dark = ThemeData.from(
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.green,
-      brightness: Brightness.dark,
-    ),
-    useMaterial3: true,
-  ).copyWith(
-    extensions: [
-      AppColors.dark,
-    ],
-    bottomNavigationBarTheme: _bottomNavigationBarTheme,
-    dividerTheme: _dividerTheme,
-  );
+  ThemeData get dark => ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ).copyWith(
+        extensions: [
+          AppColors.dark,
+        ],
+        bottomNavigationBarTheme: _bottomNavigationBarTheme,
+        dividerTheme: _dividerTheme,
+      );
 
   static const _bottomNavigationBarTheme = BottomNavigationBarThemeData(
     selectedLabelStyle: TextStyle(
