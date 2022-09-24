@@ -1,5 +1,5 @@
 name: github_repo_searcher
-description: A new Flutter project.
+description: A simple GitHub repository search application by using `GitHub REST API`.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
