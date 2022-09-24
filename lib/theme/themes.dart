@@ -12,7 +12,7 @@ extension ThemeDataX on ThemeData {
 class Themes {
   Themes._();
 
-  ThemeData get light => ThemeData.from(
+  static ThemeData get light => ThemeData.from(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ).copyWith(
@@ -23,7 +23,7 @@ class Themes {
         dividerTheme: _dividerTheme,
       );
 
-  ThemeData get dark => ThemeData.from(
+  static ThemeData get dark => ThemeData.from(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.green,
           brightness: Brightness.dark,

@@ -4,10 +4,10 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:github_repo_searcher/app.dart';
 import 'package:github_repo_searcher/common/common.dart';
 import 'package:github_repo_searcher/logger.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_logger/simple_logger.dart';
 
@@ -18,7 +18,7 @@ Future<void> main() async {
     includeCallerInfo: kDebugMode,
   );
   // Webブラウザ表示時のURLから`#`を取り除く
-  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
+  usePathUrlStrategy();
   late final SharedPreferences sharedPreferences;
   await Future.wait([
     SharedPreferences.getInstance().then((sp) => sharedPreferences = sp),
