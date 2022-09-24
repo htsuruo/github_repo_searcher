@@ -22,9 +22,7 @@ class App extends ConsumerWidget {
       themeMode: ref.watch(themeModeProvider),
       theme: Themes.light,
       darkTheme: Themes.dark,
-      routeInformationProvider: router.routeInformationProvider,
-      routeInformationParser: router.routeInformationParser,
-      routerDelegate: router.routerDelegate,
+      routerConfig: routerConfig,
     );
   }
 }
