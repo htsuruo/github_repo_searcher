@@ -19,10 +19,10 @@ class App extends ConsumerWidget {
       onGenerateTitle: (context) => context.l10n.appTitle,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      routerConfig: ref.watch(routerConfigProvider),
       themeMode: ref.watch(themeModeProvider),
       theme: Themes.light,
       darkTheme: Themes.dark,
-      routerConfig: routerConfig,
     );
   }
 }
