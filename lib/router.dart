@@ -35,6 +35,9 @@ final _routes = [
         builder: (context, state) {
           final repoId = state.params['repoId'];
           logger.fine('repoId: $repoId');
+          // MEMO(tsuruoka): 現状リストで返却されたRepoクラスをStateProviderで渡しているが
+          // WebアプリなどのURLのダイレクトアクセスを可能にするには`repoId`でパスパラメータ指定して
+          // 画面が開くごとにフェッチする形にしたほうが良さそう。
           return const RepoDetailPage();
         },
       ),
