@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
+import 'package:github_repo_searcher/features/base/scroll_provider.dart';
 import 'package:github_repo_searcher/gen/assets.gen.dart';
 
 import 'bottom_navigation_type.dart';
 
-class BasePage extends StatefulWidget {
+class BasePage extends ConsumerStatefulWidget {
   const BasePage({super.key});
 
   @override
-  State<BasePage> createState() => _BasePageState();
+  ConsumerState<BasePage> createState() => _BasePageState();
 }
 
-class _BasePageState extends State<BasePage> {
+class _BasePageState extends ConsumerState<BasePage> {
   final types = BottomNavigationType.values;
   int currentIndex = 0;
 
@@ -29,6 +31,11 @@ class _BasePageState extends State<BasePage> {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           onTap: (index) {
+            if (currentIndex == index) {
+              ref
+                  .read(scrollProvider(BottomNavigationType.values[index]))
+                  .animateToTop();
+            }
             setState(() {
               currentIndex = index;
             });

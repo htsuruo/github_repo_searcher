@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
+import 'package:github_repo_searcher/features/base/bottom_navigation_type.dart';
+import 'package:github_repo_searcher/features/base/scroll_provider.dart';
 
 import 'search_bar/search_bar.dart';
 import 'search_provider.dart';
@@ -50,6 +52,11 @@ class SearchPage extends ConsumerWidget {
                     child: totalCount < 1
                         ? const RepoNotFound()
                         : ListView.separated(
+                            controller: ref
+                                .watch(
+                                  scrollProvider(BottomNavigationType.search),
+                                )
+                                .controller,
                             itemCount: totalCount,
                             separatorBuilder: (context, _) => const Divider(),
                             itemBuilder: (context, index) {
