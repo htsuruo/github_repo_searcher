@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/repo/widget/circular_icon_tag.dart';
 import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:intersperse/intersperse.dart';
 
 import 'model/repo.dart';
+import 'widget/circular_icon_tag.dart';
 import 'widget/repo_not_found.dart';
 
 final selectedRepo = StateProvider<Repo?>((ref) => null);
 
-class RepoDetailPage extends ConsumerWidget {
-  const RepoDetailPage({super.key});
+class RepoPage extends ConsumerWidget {
+  const RepoPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

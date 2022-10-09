@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/extensions/extensions.dart';
 
-import 'repo_search_bar_controller.dart';
+import 'search_bar_controller.dart';
 
-export 'repo_search_bar_controller.dart';
+export 'search_bar_controller.dart';
 
-class RepoSearchBar extends ConsumerWidget {
-  const RepoSearchBar({super.key});
+class SearchBar extends ConsumerWidget {
+  const SearchBar({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final controller = ref.watch(repoSearchBarController.notifier);
+    final controller = ref.watch(searchBarController.notifier);
     return Form(
       key: controller.formGlobalKey,
       child: TextFormField(

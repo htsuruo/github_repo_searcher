@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/repo/repo_search_provider.dart';
+import 'package:github_repo_searcher/features/search/search_provider.dart';
 import 'package:github_repo_searcher/theme/themes.dart';
 import 'package:go_router/go_router.dart';
 
-import '../repo_detail_page.dart';
+import '../repo_page.dart';
 import 'circular_icon_tag.dart';
 
 class RepoTile extends ConsumerWidget {

@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/logger.dart';
 
-final repoSearchBarController =
-    StateNotifierProvider<RepoSearchBarNotifier, String>(
-  (ref) => RepoSearchBarNotifier(),
+final searchBarController = StateNotifierProvider<SearchBarNotifier, String>(
+  (ref) => SearchBarNotifier(),
 );
 
 const _initialQuery = 'flutter';
 
-class RepoSearchBarNotifier extends StateNotifier<String> {
-  RepoSearchBarNotifier() : super(_initialQuery) {
+class SearchBarNotifier extends StateNotifier<String> {
+  SearchBarNotifier() : super(_initialQuery) {
     searchTextController.text = _initialQuery;
     state = _initialQuery;
   }

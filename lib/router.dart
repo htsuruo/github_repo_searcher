@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/features/base/base_page.dart';
-import 'package:github_repo_searcher/features/repo/repo_detail_page.dart';
+import 'package:github_repo_searcher/features/search/repo_page.dart';
 import 'package:github_repo_searcher/logger.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences_debugger/shared_preferences_debugger.dart';
@@ -28,7 +28,7 @@ final routerProvider = Provider((ref) {
               // MEMO(tsuruoka): 現状リストで返却されたRepoクラスをStateProviderで渡しているが
               // WebアプリなどのURLのダイレクトアクセスを可能にするには`repoId`でパスパラメータ指定して
               // 画面が開くごとにフェッチする形にしたほうが良さそう。
-              return const RepoDetailPage();
+              return const RepoPage();
             },
           ),
           GoRoute(

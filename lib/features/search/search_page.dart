@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_searcher/common/common.dart';
 
-import 'repo_search_bar/repo_search_bar.dart';
-import 'repo_search_provider.dart';
+import 'search_bar/search_bar.dart';
+import 'search_provider.dart';
 import 'widget/repo_not_found.dart';
 import 'widget/repo_tile.dart';
 
-class RepoSearchPage extends ConsumerWidget {
-  const RepoSearchPage({super.key});
+class SearchPage extends ConsumerWidget {
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,7 +22,7 @@ class RepoSearchPage extends ConsumerWidget {
               horizontal: horizontalPadding,
               vertical: 8,
             ),
-            child: RepoSearchBar(),
+            child: SearchBar(),
           ),
         ),
         const Divider(),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_searcher/common/common.dart';
-import 'package:github_repo_searcher/features/repo/repo_search_page.dart';
+import 'package:github_repo_searcher/features/search/search_page.dart';
 import 'package:github_repo_searcher/features/settings/settings_page.dart';
 
 enum BottomNavigationType {
   /// リポジトリ検索
-  repoSearch(iconData: Icons.search, page: RepoSearchPage()),
+  repoSearch(iconData: Icons.search, page: SearchPage()),
 
   /// 設定
   settings(iconData: Icons.settings, page: SettingsPage()),
