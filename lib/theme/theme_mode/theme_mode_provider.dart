@@ -4,11 +4,11 @@ import 'package:github_repo_searcher/common/common.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final themeModeProvider = StateNotifierProvider<ThemeModeNotifier, ThemeMode>(
-  (ref) => ThemeModeNotifier(ref.read),
+  ThemeModeNotifier.new,
 );
 
 class ThemeModeNotifier extends StateNotifier<ThemeMode> {
-  ThemeModeNotifier(this._read) : super(_defaultTheme) {
+  ThemeModeNotifier(this._ref) : super(_defaultTheme) {
     try {
       state = ThemeMode.values.byName(
         _prefs.getString(PreferenceKey.appThemeMode.name) ?? '',
@@ -18,8 +18,8 @@ class ThemeModeNotifier extends StateNotifier<ThemeMode> {
       state = _defaultTheme;
     }
   }
-  final Reader _read;
-  SharedPreferences get _prefs => _read(sharedPreferencesProvider);
+  final Ref _ref;
+  SharedPreferences get _prefs => _ref.read(sharedPreferencesProvider);
   static const _defaultTheme = ThemeMode.system;
 
   void select(ThemeMode themeMode) {

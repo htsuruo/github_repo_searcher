@@ -33,7 +33,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_riverpod: ^2.0.0-dev.9
+  flutter_riverpod:
   flutter_svg:
   flutter_web_plugins:
     sdk: flutter
