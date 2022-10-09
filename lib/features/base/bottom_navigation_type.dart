@@ -5,7 +5,7 @@ import 'package:github_repo_searcher/features/settings/settings_page.dart';
 
 enum BottomNavigationType {
   /// リポジトリ検索
-  repoSearch(iconData: Icons.search, page: SearchPage()),
+  search(iconData: Icons.search, page: SearchPage()),
 
   /// 設定
   settings(iconData: Icons.settings, page: SettingsPage()),
@@ -18,7 +18,7 @@ enum BottomNavigationType {
   // MEMO(tsuruoka): BuildContextを引っ張ってくるかWidget層で定義するべきか悩ましい
   String label(BuildContext context) {
     switch (this) {
-      case repoSearch:
+      case search:
         return context.l10n.repoSearch;
       case settings:
         return context.l10n.settings;
